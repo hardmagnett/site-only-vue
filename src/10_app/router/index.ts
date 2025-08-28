@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/projects/:projectSlug',
     name: 'project',
-    component: () => import('@/20_pages/ProjectsPage'),
+    component: () => import('@/20_pages/ProjectPage'),
   },
   {
     path: '/:pathMatch(.*)*',
