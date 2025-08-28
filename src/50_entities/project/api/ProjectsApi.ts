@@ -4,6 +4,9 @@ class ProjectsApi {
   getAllProjects = () => {
     return allProjects
   }
+  getProjectBySlug = ({slug}: {slug: string}) => {
+    return allProjects.find(p=>p.slug === slug)
+  }
 }
 
 export { ProjectsApi }

@@ -1,11 +1,31 @@
 <template>
-  <div class="project-page">
-    <p>project</p>
+  <div class="project-page" v-if="project">
+    <h1>{{project.title}}</h1>
+    <p>{{project.descLong}}</p>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import { onBeforeMount, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router';
+import { ProjectsApi } from '@/50_entities/project'
+const route = useRoute();
+const router = useRouter();
+const projectsApi = new ProjectsApi()
+
+let project = ref(null)
+
+onBeforeMount(()=>{
+  let slug = route.params.projectSlug as string ?? '' as string
+  const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
+  console.log(projectThatFound); console.log('^...projectThatFound:')
+  if (!projectThatFound) {
+    router.push({name: 'NotFound', replace: false })
+  }
+  project.value = projectThatFound
+
+})
 
 </script>
 
