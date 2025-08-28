@@ -11,5 +11,6 @@ export default {
     description: 'Мета-описание проекта 2'
   },
   imageMain: '/img.jpg',
+  content: '',
   projectPhaseQtyId: null
 } satisfies Project
