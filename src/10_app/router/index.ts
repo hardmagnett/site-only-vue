@@ -1,43 +1,35 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
-import metaMiddleware from '@/10_app/router/middleware/metaMiddleware'
+import { setMetaTags } from '@/60_shared/lib/metaTags'
+import {
+  pageMain,
+  pageAbout,
+  pageProjects
+} from '@/70_content/singularPages/';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'main',
     component: () => import('@/20_pages/MainPage'),
-    meta: {
-      title: 'ТИТЛ Главная',
-      description: 'Деск Главная',
-    }
+    beforeEnter: () => setMetaTags(pageMain.meta),
   },
   {
     path: '/about',
     name: 'about',
     component: () => import('@/20_pages/AboutPage'),
-    meta: {
-      title: 'ТИТЛ Обо мне',
-      description: 'Деск Обо мне',
-    }
+    beforeEnter: () => setMetaTags(pageAbout.meta),
   },
   {
     path: '/projects',
     name: 'projects',
     component: () => import('@/20_pages/ProjectsPage'),
-    meta: {
-      title: 'ТИТЛ Проекты',
-      description: 'Деск Проекты',
-    }
+    beforeEnter: () => setMetaTags(pageProjects.meta),
   },
   {
     path: '/projects/:projectSlug',
     name: 'project',
     component: () => import('@/20_pages/ProjectPage'),
-    meta: {
-      title: 'ТИТЛ Проект',
-      description: 'Деск проект',
-    }
   },
   {
     path: '/:pathMatch(.*)*',
@@ -55,6 +47,6 @@ const router = createRouter({
   routes: routes,
 })
 
-router.beforeEach(metaMiddleware)
+// router.beforeEach(metaMiddleware)
 
 export default router

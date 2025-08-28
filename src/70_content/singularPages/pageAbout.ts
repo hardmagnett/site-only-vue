@@ -4,8 +4,8 @@ export const pageAbout = {
   content: '',
   imageMain: '',
   meta: {
-    title: 'TITLE MAIN',
-    description: 'DESK MAIN'
+    title: 'TITLE ABOUT',
+    description: 'DESK ABOUT'
   },
   slug:'',
   descShort:'desc short',
