@@ -6,7 +6,10 @@ export default {
   title: 'Проект 1',
   descShort: 'Короткое описание 1',
   descLong: 'Длинное описание 1',
-  // imageMain: '/content/project/1_project_1/img.jpg',
+  meta: {
+    title: 'Мета-заголовок проекта 1',
+    description: 'Мета-описание проекта 1'
+  },
   imageMain: 'img.jpg',
   projectPhaseQtyId: 1
 } satisfies Project

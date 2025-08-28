@@ -10,15 +10,18 @@
 
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter, onBeforeRouteLeave, onBeforeRouteUpdate  } from 'vue-router';
 import { type Project, ProjectsApi } from '@/50_entities/project'
+import { setMetaTags } from '@/60_shared/lib/metaTags'
 const route = useRoute();
 const router = useRouter();
 const projectsApi = new ProjectsApi()
 
 let project = ref<Project|null>(null)
 
+
 onBeforeMount(()=>{
+  console.log('beforeMount')
   let slug = route.params.projectSlug as string ?? '' as string
   const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
   // console.log(projectThatFound); console.log('^...projectThatFound:')
@@ -27,9 +30,12 @@ onBeforeMount(()=>{
   }
   if (projectThatFound) {
     project.value = projectThatFound
+    setMetaTags(project.value.meta)
   }
-
-
+})
+onBeforeRouteUpdate(async (to, from)=>{
+  console.log(to); console.log('^...to:')
+  console.log('in comp')
 })
 
 </script>

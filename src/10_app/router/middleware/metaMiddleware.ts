@@ -1,6 +1,8 @@
 import type { RouteLocationNormalized } from 'vue-router'
+import { setMetaTags } from '@/60_shared/lib/metaTags'
 
 export default async (to: RouteLocationNormalized): Promise<void> => {
+  console.log('in router')
   const titleDefault = 'Default Title';
   const descriptionDefault = 'Default Description';
 
@@ -9,10 +11,8 @@ export default async (to: RouteLocationNormalized): Promise<void> => {
     description: descriptionFromRoute
   } = to.meta as { title?: string; description?: string };
 
-  document.title = titleFromRoute || titleDefault;
-
-  const descriptionElement = document.querySelector('head meta[name="description"]') as HTMLMetaElement | null;
-  if (descriptionElement) {
-    descriptionElement.setAttribute('content', descriptionFromRoute || descriptionDefault);
-  }
+  setMetaTags({
+    title: titleFromRoute || titleDefault,
+    description: descriptionFromRoute || descriptionDefault
+  })
 };
