@@ -1,14 +1,19 @@
 <template>
   <div class="main-page">
     <p>main</p>
+
+    <div v-html="md.render(pageMain.content)">
+
+    </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
 import { } from 'vue'
-// import { pageMain } from '@/70_content/singularPages/pageMain';
-// import { setMetaTags } from '@/60_shared/lib/metaTags'
-// setMetaTags(pageMain.meta)
+import { pageMain } from '@/70_content/singularPages/pageMain';
+import markdownit from 'markdown-it'
+const md = markdownit()
 
 </script>
 

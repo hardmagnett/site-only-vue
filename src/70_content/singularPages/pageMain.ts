@@ -1,7 +1,10 @@
 import type { PageMain } from '@/50_entities/singularPages'
 
+import markdownContent from './pageMainContent.md?raw';
+
 export const pageMain = {
-  content: '',
+  // content: 'Super Content for main page',
+  content: markdownContent,
   imageMain: '',
   meta: {
     title: 'TITLE MAIN',
