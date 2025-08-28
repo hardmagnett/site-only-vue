@@ -1,7 +1,7 @@
-import project1 from './1_Project_1/'
-import project2 from './2_Project_2/'
+import p001 from './001'
+import p002 from './002'
 let result = [
-  project1,
-  project2
+  p001,
+  p002
 ]
 export default result

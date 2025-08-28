@@ -2,6 +2,7 @@
   <div class="projects-page">
     <h1>projectS</h1>
     <div v-for="project in allProjects" :key="project.slug">
+      <hr>
       <router-link :to="{
         name: 'project',
         params: { projectSlug: project.slug }
@@ -9,8 +10,9 @@
         <p>{{project.title}}</p>
       </router-link>
       <p>{{project.descShort}}</p>
+      <img width="40" :src="project.imageMain">
+      <hr>
     </div>
-    <hr>
   </div>
 </template>
 

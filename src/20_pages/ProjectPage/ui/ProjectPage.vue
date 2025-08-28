@@ -2,6 +2,7 @@
   <div class="project-page" v-if="project">
     <h1>{{project.title}}</h1>
     <p>{{project.descLong}}</p>
+    <img width="100" :src="project.imageMain">
 
   </div>
 </template>
@@ -19,7 +20,7 @@ let project = ref(null)
 onBeforeMount(()=>{
   let slug = route.params.projectSlug as string ?? '' as string
   const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
-  console.log(projectThatFound); console.log('^...projectThatFound:')
+  // console.log(projectThatFound); console.log('^...projectThatFound:')
   if (!projectThatFound) {
     router.push({name: 'NotFound', replace: false })
   }
