@@ -2,6 +2,7 @@
   <div class="project-page" v-if="project">
     <h1>{{project.title}}</h1>
     <p>{{project.descLong}}</p>
+    <p v-if="project.projectPhaseQty">{{project.projectPhaseQty.title}}</p>
     <img width="100" :src="project.imageMain">
 
   </div>
@@ -10,12 +11,12 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router';
-import { ProjectsApi } from '@/50_entities/project'
+import { type Project, ProjectsApi } from '@/50_entities/project'
 const route = useRoute();
 const router = useRouter();
 const projectsApi = new ProjectsApi()
 
-let project = ref(null)
+let project = ref<Project|null>(null)
 
 onBeforeMount(()=>{
   let slug = route.params.projectSlug as string ?? '' as string
@@ -24,7 +25,10 @@ onBeforeMount(()=>{
   if (!projectThatFound) {
     router.push({name: 'NotFound', replace: false })
   }
-  project.value = projectThatFound
+  if (projectThatFound) {
+    project.value = projectThatFound
+  }
+
 
 })
 

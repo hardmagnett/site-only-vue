@@ -1,11 +1,13 @@
 import allProjectsRaw from '@/70_content/project'
+import allProjectPhaseQty from '@/70_content/projectPhaseQty'
 
 class ProjectsApi {
   getAllProjects = () => {
     let allProjects = allProjectsRaw.map(project=> {
       return {
         ...project,
-        imageMain: `/content/project/${project.id}/${project.imageMain}`
+        imageMain: `/content/project/${project.id}/${project.imageMain}`,
+        projectPhaseQty: allProjectPhaseQty.find(q=>q.id === project.projectPhaseQtyId)
       }
     })
     return allProjects

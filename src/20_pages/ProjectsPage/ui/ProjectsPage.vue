@@ -10,6 +10,7 @@
         <p>{{project.title}}</p>
       </router-link>
       <p>{{project.descShort}}</p>
+      <p v-if="project.projectPhaseQty">{{project.projectPhaseQty.title}}</p>
       <img width="40" :src="project.imageMain">
       <hr>
     </div>

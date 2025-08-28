@@ -6,5 +6,6 @@ export default {
   title: 'Проект 2',
   descShort: 'Короткое описание 2',
   descLong: 'Длинное описание 2',
-  imageMain: '/img.jpg'
+  imageMain: '/img.jpg',
+  projectPhaseQtyId: null
 } satisfies Project
