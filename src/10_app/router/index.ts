@@ -6,6 +6,7 @@ import {
   pageAbout,
   pageProjects
 } from '@/70_content/singularPages/';
+import { getProjectMiddleware } from '@/20_pages/ProjectPage'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,15 +31,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/projects/:projectSlug',
     name: 'project',
     component: () => import('@/20_pages/ProjectPage'),
+    beforeEnter: getProjectMiddleware,
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/20_pages/NotFoundPage'),
-    meta: {
+    beforeEnter: () => setMetaTags({
       title: 'Страница не найдена',
       description: 'Страница не найдена',
-    }
+    }),
   },
 ]
 

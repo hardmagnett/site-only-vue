@@ -16,33 +16,26 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
-import { useRoute, useRouter, onBeforeRouteLeave, onBeforeRouteUpdate  } from 'vue-router';
+import { onBeforeMount, ref, watch } from 'vue'
+import { useRoute, onBeforeRouteUpdate  } from 'vue-router';
 import { type Project, ProjectsApi } from '@/50_entities/project'
-import { setMetaTags } from '@/60_shared/lib/metaTags'
+import { getProjectMiddleware } from '@/20_pages/ProjectPage'
 const route = useRoute();
-const router = useRouter();
 const projectsApi = new ProjectsApi()
 
-let project = ref<Project|null>(null)
-
-
-const getProject = (slug: string)=>{
-  const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
-  if (!projectThatFound) {
-    router.push({name: 'NotFound'})
-  }
-  if (projectThatFound) {
-    project.value = projectThatFound
-    setMetaTags(project.value.meta)
-  }
+const getProject = ()=>{
+  return projectsApi
+    .getProjectBySlug({slug: route.params.projectSlug as string})as Project
 }
 
-getProject(route.params.projectSlug as string)
+let project = ref<Project>(getProject())
 
-onBeforeRouteUpdate(async (to, from)=>{
-  getProject(to.params.projectSlug as string)
+
+watch(() => route.params.projectSlug,(slug) => {
+  project.value = getProject()
 })
+
+onBeforeRouteUpdate(getProjectMiddleware)
 
 </script>
 
