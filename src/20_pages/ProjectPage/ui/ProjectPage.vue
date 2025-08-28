@@ -5,6 +5,13 @@
     <p v-if="project.projectPhaseQty">{{project.projectPhaseQty.title}}</p>
     <img width="100" :src="project.imageMain">
 
+    <router-link :to="{
+        name: 'project',
+        params: { projectSlug: 'project-2' }
+      }">
+      <p>project-2</p>
+    </router-link>
+
   </div>
 </template>
 
@@ -20,22 +27,21 @@ const projectsApi = new ProjectsApi()
 let project = ref<Project|null>(null)
 
 
-onBeforeMount(()=>{
-  console.log('beforeMount')
-  let slug = route.params.projectSlug as string ?? '' as string
+const getProject = (slug: string)=>{
   const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
-  // console.log(projectThatFound); console.log('^...projectThatFound:')
   if (!projectThatFound) {
-    router.push({name: 'NotFound', replace: false })
+    router.push({name: 'NotFound'})
   }
   if (projectThatFound) {
     project.value = projectThatFound
     setMetaTags(project.value.meta)
   }
-})
+}
+
+getProject(route.params.projectSlug as string)
+
 onBeforeRouteUpdate(async (to, from)=>{
-  console.log(to); console.log('^...to:')
-  console.log('in comp')
+  getProject(to.params.projectSlug as string)
 })
 
 </script>
