@@ -1,3 +1,5 @@
+import type { Project } from '@/50_entities/project/'
+
 export default {
   id: '001',
   slug: 'project-1',
@@ -6,4 +8,4 @@ export default {
   descLong: 'Длинное описание 1',
   // imageMain: '/content/project/1_project_1/img.jpg',
   imageMain: 'img.jpg'
-}
+} satisfies Project
