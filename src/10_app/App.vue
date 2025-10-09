@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <OffCanvasSidebar/>
-    <HeaderFull/>
-    <div>
-      <router-link :to="{name: 'main'}">Главная</router-link>
-      &nbsp;&nbsp;&nbsp;
-      <router-link :to="{name: 'projects'}">Проекты</router-link>
-      &nbsp;&nbsp;&nbsp;
-      <router-link :to="{name: 'about'}">Обо мне</router-link>
+  <div class="app">
+    <div class="app__all-but-footer">
+      <OffCanvasSidebar/>
+      <HeaderFull/>
+      <div>
+        <router-link :to="{name: 'main'}">Главная</router-link>
+        &nbsp;&nbsp;&nbsp;
+        <router-link :to="{name: 'projects'}">Проекты</router-link>
+        &nbsp;&nbsp;&nbsp;
+        <router-link :to="{name: 'about'}">Обо мне</router-link>
+      </div>
+      <router-view />
     </div>
 
+    <FooterFull/>
   </div>
-  <router-view />
-  <FooterFull/>
 </template>
 
 <script setup lang="ts">
@@ -21,4 +23,16 @@ import { HeaderFull } from '@/30_widgets/HeaderFull'
 import { FooterFull } from '@/30_widgets/FooterFull'
 </script>
 
-<style scoped></style>
+<style scoped>
+/*Липкий футер старт*/
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .app__all-but-footer {
+    flex-grow: 1;
+  }
+}
+
+/*Липкий футер энд*/
+</style>
