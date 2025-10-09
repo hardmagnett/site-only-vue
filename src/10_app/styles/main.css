@@ -1,1 +1,3 @@
 @import 'normalize.css';
+@import '@/80_rare_modules/smartmenus-1.2.1/css/sm-core-css.css';
+@import '@/80_rare_modules/smartmenus-1.2.1/css/sm-simple/sm-simple.css';
