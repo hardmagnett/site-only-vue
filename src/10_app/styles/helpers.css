@@ -1,0 +1,15 @@
+.mod--flex-spacer {
+  flex: 1 0 auto;
+}
+
+.mod--cool-scrollbar {
+  /*scrollbar-color: #ddd transparent;*/
+  scrollbar-color: var(--clr-bg-header-second) transparent;
+  /*scrollbar-color: var(--clr-bg-header-second) red;*/
+  scrollbar-width: thin;
+}
+
+.mod--stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}

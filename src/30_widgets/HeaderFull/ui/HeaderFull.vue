@@ -19,7 +19,7 @@
         <!--    $id="off-canvas-button&#45;&#45;big";-->
         <!--    include "{$mv -> views_path}03_widgets/off-canvas/off-canvas-button.php";-->
         <!--?>-->
-        <!--<? $cssModifiers="z-logo&#45;&#45;on-dark"; include $mv -> views_path."06_shared/logo/logo.php";?>-->
+        <MainLogo class="main-logo--on-dark"/>
         <!--<? include "{$mv -> views_path}04_features/main-menu/main-menu.php";?>-->
       </div>
 
@@ -30,6 +30,7 @@
 <script setup lang="ts">
 import { } from 'vue'
 import { OffCanvasButton } from '@/30_widgets/OffCanvas'
+import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 
 </script>
 
