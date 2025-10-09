@@ -1,8 +1,5 @@
 <template>
   <div class="off-canvas-content">
-    <!--<? foreach(range(1, 20) as $number): ?>-->
-    <!--<p><?=$number?>: foo</p>-->
-    <!--<? endforeach; ?>-->
     <p v-for="n in 20" :key="n">{{n}}: foo</p>
   </div>
 </template>
@@ -13,5 +10,7 @@ import { } from 'vue'
 </script>
 
 <style scoped>
-.off-canvas-content {}
+.off-canvas-content {
+  color: var(--clr-txt-navigation);
+}
 </style>
