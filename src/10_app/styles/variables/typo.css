@@ -1,0 +1,40 @@
+/*:root {*/
+/*:root, html {*/
+html {
+  --icon-font: 'Material Design Icons', sans-serif;
+  
+  --abstract-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --abstract-font-size-base: 18px;
+  
+  --header-font-family: var(--abstract-font-family);
+  /*--header-font-weight: 300;*/
+  --header-font-weight: 400;
+  /*--header-font-weight: 700;*/ /*как на bpblog*/
+  
+  --header-letter-spacing: 0.02rem;
+  --header-line-height: 1.2;
+
+  --body-font-family: var(--abstract-font-family);
+  --body-font-weight: 300;
+  /*--body-font-weight: 400;*/
+  --body-letter-spacing: 0.02rem;
+  --body-line-height: 1.4;
+
+  /*размеры Шрифтов*/
+  --font-size-h1: calc(1.28vw + 25px); /*В т.ч. для h1*/
+  --font-size-h2: 25px; /*В т.ч. для h2*/
+  --font-size-h3: 21px; /*В т.ч. для h3*/
+  --font-size-bigger: 21px;
+  --font-size-base: 18px;
+  --font-size-small: 14px;
+  --font-size-tiny: 12px;
+
+  --font-weight-bold: 600;
+
+  /*Хуй с ним. Захардкодил. Через container style не получилось*/
+  @media (min-width: 768px) {
+    --font-size-h1: 40px;
+    --font-size-h2: 28px; /*В т.ч. для h2*/
+    --font-size-bigger: 23px;
+  }
+}

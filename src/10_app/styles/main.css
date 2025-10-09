@@ -1,3 +1,14 @@
 @import 'normalize.css';
 @import '@/80_rare_modules/smartmenus-1.2.1/css/sm-core-css.css';
 @import '@/80_rare_modules/smartmenus-1.2.1/css/sm-simple/sm-simple.css';
+
+@import '../fonts/kazmann-sans/kazmann-sans.css';
+/*@import '../fonts/proxima-nova/proxima-nova.css';*/
+@import '../fonts/material-design-icons/material-design-icons-v6.9.96.css';
+
+@import './variables/breakpoints.css';
+@import './variables/colors.css';
+@import './variables/typo.css';
+@import './variables/other.css';
+@import "./typo.css";
+@import './colors.css';

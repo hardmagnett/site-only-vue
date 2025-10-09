@@ -1,0 +1,10 @@
+:root {
+  --clr-main: #D9480F;  /*Pragmatic*/
+  --clr-txt-navigation: #ddd;
+
+  --clr-bg-header-first: #171820;
+  --clr-bg-header-second: #272833;
+  --clr-bg-body-normal: #eee;
+  
+  --clr-border-minimal: #e8e8e8;
+}

@@ -1,0 +1,7 @@
+@font-face {
+  /*Здесь и в других местах нужно дать шрифту нестандартрое название, чтобы шрифт не подключалая из ОС */
+  font-family: "Kazmann Sans Font";
+  src: url("./kazmann-sans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
