@@ -1,7 +1,10 @@
 <template>
   <div
     class="off-canvas-button"
-    id="off-canvas-button"
+    :class="{
+      'off-canvas-button--sidebar-visible': isOffCanvasOpen
+    }"
+    @click="toggleOffCanvas"
   >
     <span class="mdi mdi-menu"></span>
   </div>
@@ -9,6 +12,7 @@
 
 <script setup lang="ts">
 import { } from 'vue'
+import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
 
 </script>
 

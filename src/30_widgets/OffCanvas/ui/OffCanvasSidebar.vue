@@ -1,14 +1,16 @@
 <template>
   <div
     class="off-canvas-sidebar"
-    id="off-canvas-sidebar"
+    :class="{
+      'off-canvas-sidebar--sidebar-visible': isOffCanvasOpen
+    }"
   >
     <div class="off-canvas-sidebar__not-scrollable-top">
       <div
         class="off-canvas-sidebar__cross mdi mdi-close-thick"
-        id="off-canvas-sidebar__cross"
+        @click="toggleOffCanvas"
       ></div>
-      <p>сюда можно добавить логотип</p>
+      <p style="color: orange;">сюда можно добавить логотип</p>
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
       <OffCanvasContent/>
@@ -22,15 +24,26 @@
 
   <div
     class="off-canvas-overlay"
-    id="off-canvas-overlay"
+    :class="{
+      'off-canvas-overlay--sidebar-visible': isOffCanvasOpen
+    }"
+    @click="toggleOffCanvas"
   >
 
   </div>
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import { watch } from 'vue'
 import OffCanvasContent from './OffCanvasContent.vue'
+import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
+watch(isOffCanvasOpen,(newVal)=>{
+  if (newVal){
+    document.body.classList.add('mod--stop-scrolling')
+  } else {
+    document.body.classList.remove('mod--stop-scrolling')
+  }
+})
 
 </script>
 
