@@ -8,3 +8,6 @@ npm run lint
 npm run format
 npm run build
 ```
+
+## Всякое
+Кошу под bedroom producers blog.
