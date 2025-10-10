@@ -3,14 +3,16 @@
     <div class="app__all-but-footer">
       <OffCanvasSidebar/>
       <HeaderFull/>
-      <div>
-        <router-link :to="{name: 'main'}">Главная</router-link>
-        &nbsp;&nbsp;&nbsp;
-        <router-link :to="{name: 'projects'}">Проекты</router-link>
-        &nbsp;&nbsp;&nbsp;
-        <router-link :to="{name: 'about'}">Обо мне</router-link>
+      <div class="container container--with-padding-top container--with-padding-bottom">
+        <div>
+          <router-link :to="{name: 'main'}">Главная</router-link>
+          &nbsp;&nbsp;&nbsp;
+          <router-link :to="{name: 'projects'}">Проекты</router-link>
+          &nbsp;&nbsp;&nbsp;
+          <router-link :to="{name: 'about'}">Обо мне</router-link>
+        </div>
+        <router-view />
       </div>
-      <router-view />
     </div>
 
     <FooterFull/>

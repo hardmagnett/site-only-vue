@@ -2,19 +2,16 @@ import type { PageMain } from '@/50_entities/singularPages'
 
 import markdownContent from './pageMainContent.md?raw';
 
-// todo:: раскидать по папкам всё что в этой папке.
-// А-то после появления markdown тут свалка началась
 export const pageMain = {
-  // content: 'Super Content for main page',
   content: markdownContent,
   imageMain: '',
   meta: {
-    title: 'TITLE MAIN',
-    description: 'DESK MAIN'
+    title: 'Электрощиты на заказ',
+    description: 'Проектирование и сборка электрощитов для квартир и домов по индивидуальным заказам.'
   },
   slug:'',
+  title: 'Электрощиты на заказ',
   descShort:'desc short',
-  title: 'tisle',
-  descLong: 'desc long'
+  descLong: 'Проектирование и сборка электрощитов для квартир и домов по индивидуальным заказам.'
 
 } satisfies PageMain

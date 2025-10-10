@@ -1,10 +1,16 @@
 <template>
   <div class="main-page">
-    <p>main</p>
+    <p>Галерея</p>
+    <p>https://www.lightgalleryjs.com/</p>
+    <!--<h1><? echo $content -> title; ?></h1>-->
+    <h1>{{pageMain.title}}</h1>
+    <!--<p class="p&#45;&#45;bigger"><? echo $content -> description; ?></p>-->
+    <p class="p--bigger">{{pageMain.descLong}}</p>
+    <!--<? echo $content -> content; ?>-->
 
-    <div v-html="md.render(pageMain.content)">
+    <div v-html="md.render(pageMain.content)"></div>
 
-    </div>
+
   </div>
 
 </template>
