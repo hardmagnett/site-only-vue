@@ -1,5 +1,5 @@
-import type { SocialLinkComp } from '@/50_entities/socialLink'
-const shits: SocialLinkComp[] = [
+import type { SocialLink } from '@/50_entities/socialLink'
+const shits: SocialLink[] = [
   {id: 'rutube', title: 'Rutube', url: 'http://rutube.ru', icon: 'rutube.svg'},
   {id: 'youtube', title: 'YouTube', url: 'http://youtube.com', icon: 'youtube.svg'},
   {id: 'vk', title: 'ВКонтакте', url: 'http://vk.com', icon: 'vk.svg'},

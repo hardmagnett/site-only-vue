@@ -1,7 +1,7 @@
 import type { PageAbout } from '@/50_entities/singularPages'
-
+import markdownContent from './pageAboutContent.md?raw';
 export const pageAbout = {
-  content: '',
+  content: markdownContent,
   imageMain: '',
   meta: {
     title: 'TITLE ABOUT',
