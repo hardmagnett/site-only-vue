@@ -26,12 +26,22 @@ export default defineConfigWithVueTs(
     },
     languageOptions: {
       parserOptions: {
+        /**
+         * Решает эту конченную проблему.
+         * Parsing error: inferred tsconfigRootDir should be a resolved absolute path, but received: "D:/WWWeb/MyProjects/site-only-vue". This is a bug in typescript-eslint! Please report it to us at https://github.com/typescript-eslint/typescript-eslint/issues/new/choose
+         * С большим трудом нашел это решение у GPT.
+         */
         tsconfigRootDir: import.meta.dirname, // Set the root directory for tsconfig resolution
       }
     }
   },
 
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
+  globalIgnores([
+    '**/src/80_rare_modules**', // Чтобы не ругалось на древние библиотеки, подключенные абы-как.
+    '**/dist/**',
+    '**/dist-ssr/**',
+    '**/coverage/**'
+  ]),
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
