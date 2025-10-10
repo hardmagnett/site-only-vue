@@ -1,10 +1,15 @@
 import type { ProjectPhaseQtyId, ProjectPhaseQty } from '@/50_entities/projectPhaseQty'
 import type { MetaTags } from '@/60_shared/lib/metaTags'
 import type { PageBasic } from '@/50_entities/singularPages'
+import type { ProjectPlacement, ProjectPlacementId } from '@/50_entities/projectPlacement'
 
 
 export type Project = {
   id: string,
-  projectPhaseQtyId: ProjectPhaseQtyId | null
+  hidden?: true,
+  // projectPhaseQtyId: ProjectPhaseQtyId | null
+  projectPhaseQtyId: ProjectPhaseQtyId
   projectPhaseQty?: ProjectPhaseQty
+  projectPlacementId: ProjectPlacementId
+  projectPlacement?: ProjectPlacement
 } & PageBasic

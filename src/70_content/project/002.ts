@@ -4,13 +4,14 @@ export default {
   id: '002',
   slug: 'project-2',
   title: 'Проект 2',
-  descShort: 'Короткое описание 2',
-  descLong: 'Длинное описание 2',
   meta: {
     title: 'Мета-заголовок проекта 2',
     description: 'Мета-описание проекта 2'
   },
+  descShort: 'Короткое описание 2',
+  descLong: 'Длинное описание 2',
   imageMain: '/img.jpg',
   content: '',
-  projectPhaseQtyId: null
+  projectPhaseQtyId: 1,
+  projectPlacementId: 'flat'
 } satisfies Project
