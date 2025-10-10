@@ -1,25 +1,18 @@
 <template>
   <!--class="social-link" href="<? echo $link['url'] ?>"-->
-  <a
-    class="social-link" :href="link.url"
-    target="_blank"
-  >
+  <a class="social-link" :href="link.url" target="_blank">
     <!--src="/<?echo $link['image']?>"-->
-    <img
-
-      :src="link.icon"
-    >
+    <img :src="link.icon" />
   </a>
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import {} from 'vue'
 import type { SocialLink } from '@/50_entities/socialLink'
 export interface Props {
   link: SocialLink
 }
 withDefaults(defineProps<Props>(), {})
-
 </script>
 
 <style scoped>

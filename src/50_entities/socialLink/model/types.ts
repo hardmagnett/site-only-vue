@@ -2,9 +2,9 @@
 export type SocialLinkId = string
 
 export type SocialLink = {
-  id: SocialLinkId,
+  id: SocialLinkId
   hidden?: true
-  title: string,
-  url: string,
-  icon: string,
+  title: string
+  url: string
+  icon: string
 }

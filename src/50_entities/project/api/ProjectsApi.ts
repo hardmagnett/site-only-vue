@@ -3,18 +3,18 @@ import allProjectPhaseQty from '@/70_content/projectPhaseQty'
 
 class ProjectsApi {
   getAllProjects = () => {
-    const allProjects = allProjectsRaw.map(project=> {
+    const allProjects = allProjectsRaw.map((project) => {
       return {
         ...project,
         imageMain: `/content/project/${project.id}/${project.imageMain}`,
-        projectPhaseQty: allProjectPhaseQty.find(q=>q.id === project.projectPhaseQtyId)
+        projectPhaseQty: allProjectPhaseQty.find((q) => q.id === project.projectPhaseQtyId),
       }
     })
     return allProjects
   }
-  getProjectBySlug = ({slug}: {slug: string}) => {
+  getProjectBySlug = ({ slug }: { slug: string }) => {
     // return allProjectsRaw.find(p=>p.slug === slug)
-    return this.getAllProjects().find(p=>p.slug === slug)
+    return this.getAllProjects().find((p) => p.slug === slug)
   }
 }
 

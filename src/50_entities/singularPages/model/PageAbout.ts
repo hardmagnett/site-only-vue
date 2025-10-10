@@ -1,4 +1,3 @@
 import type { PageBasic } from '@/50_entities/singularPages'
 
-export type PageAbout = {
-} & PageBasic
+export type PageAbout = {} & PageBasic

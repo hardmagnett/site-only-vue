@@ -2,7 +2,7 @@
   <div
     class="off-canvas-button"
     :class="{
-      'off-canvas-button--sidebar-visible': isOffCanvasOpen
+      'off-canvas-button--sidebar-visible': isOffCanvasOpen,
     }"
     @click="toggleOffCanvas"
   >
@@ -11,11 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import {} from 'vue'
 import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
-
 </script>
-
 
 <style scoped>
 .off-canvas-button {
@@ -31,9 +29,7 @@ import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
   }
   &.off-canvas-button--big {
     font-size: 36px;
-
   }
-
 
   &.off-canvas-button--sidebar-visible {
     /*не хочу делать анимацию. Пусть здесь будет пусто, но класс на всякий случай останется.*/

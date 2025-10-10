@@ -3,8 +3,8 @@ import allSocialLinksRaw from '@/70_content/socialLink'
 class SocialLinksApi {
   getAllActiveSocialLinks = () => {
     const allActiveSocialLinks = allSocialLinksRaw
-      .filter(link=>!link.hidden)
-      .map(link=> {
+      .filter((link) => !link.hidden)
+      .map((link) => {
         return {
           ...link,
           icon: `/content/socialLink/${link.icon}`,

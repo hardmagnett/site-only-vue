@@ -7,11 +7,7 @@
     <!--<? endforeach; ?>-->
 
     <!--<p style="color: white;" v-for="link in allActiveSocialLinks" :key="link.id">: {{ link.url }}</p>-->
-    <SocialLinkComp
-      v-for="link in allActiveSocialLinks"
-      :key="link.id"
-      :link="link"
-    />
+    <SocialLinkComp v-for="link in allActiveSocialLinks" :key="link.id" :link="link" />
   </div>
 </template>
 
@@ -20,8 +16,6 @@ import { SocialLinkComp, SocialLinksApi } from '@/50_entities/socialLink'
 
 const socialLinksApi = new SocialLinksApi()
 const allActiveSocialLinks = socialLinksApi.getAllActiveSocialLinks()
-
-
 </script>
 
 <style scoped>
@@ -29,5 +23,4 @@ const allActiveSocialLinks = socialLinksApi.getAllActiveSocialLinks()
   display: flex;
   gap: 0.5rem;
 }
-
 </style>

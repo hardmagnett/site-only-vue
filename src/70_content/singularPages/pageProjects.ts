@@ -5,11 +5,10 @@ export const pageProjects = {
   imageMain: '',
   meta: {
     title: 'TITLE PROJECTS',
-    description: 'DESK PROJECTS'
+    description: 'DESK PROJECTS',
   },
-  slug:'',
-  descShort:'desc short',
+  slug: '',
+  descShort: 'desc short',
   title: 'tisle',
-  descLong: 'desc long'
-
+  descLong: 'desc long',
 } satisfies PageProjects

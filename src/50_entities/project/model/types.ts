@@ -2,10 +2,9 @@ import type { ProjectPhaseQtyId, ProjectPhaseQty } from '@/50_entities/projectPh
 import type { PageBasic } from '@/50_entities/singularPages'
 import type { ProjectPlacement, ProjectPlacementId } from '@/50_entities/projectPlacement'
 
-
 export type Project = {
-  id: string,
-  hidden?: true,
+  id: string
+  hidden?: true
   // projectPhaseQtyId: ProjectPhaseQtyId | null
   projectPhaseQtyId: ProjectPhaseQtyId
   projectPhaseQty?: ProjectPhaseQty

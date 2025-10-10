@@ -6,12 +6,12 @@ export default {
   title: 'Проект 2',
   meta: {
     title: 'Мета-заголовок проекта 2',
-    description: 'Мета-описание проекта 2'
+    description: 'Мета-описание проекта 2',
   },
   descShort: 'Короткое описание 2',
   descLong: 'Длинное описание 2',
   imageMain: 'img.jpg',
   content: '',
   projectPhaseQtyId: 1,
-  projectPlacementId: 'flat'
+  projectPlacementId: 'flat',
 } satisfies Project

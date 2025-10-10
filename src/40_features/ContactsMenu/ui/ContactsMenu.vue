@@ -1,14 +1,13 @@
 <template>
   <div class="contacts-menu">
-    <a :href="`mailto:${singularData.email}`">{{singularData.email}}</a>
-    <a :href="`tel:${singularData.phoneForLink}`">{{singularData.phoneForDisplay}}</a>
+    <a :href="`mailto:${singularData.email}`">{{ singularData.email }}</a>
+    <a :href="`tel:${singularData.phoneForLink}`">{{ singularData.phoneForDisplay }}</a>
   </div>
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import {} from 'vue'
 import singularData from '@/70_content/singularData.ts'
-
 </script>
 
 <style scoped>

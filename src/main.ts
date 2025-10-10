@@ -6,7 +6,7 @@ import router from './10_app/router'
 import markdownit from 'markdown-it'
 
 const app = createApp(App)
-app.config.globalProperties.$md = markdownit();
+app.config.globalProperties.$md = markdownit()
 
 app.use(router)
 

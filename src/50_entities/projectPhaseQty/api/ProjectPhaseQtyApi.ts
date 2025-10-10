@@ -1,4 +1,3 @@
-class ProjectPhaseQtyApi {
-}
+class ProjectPhaseQtyApi {}
 
 export { ProjectPhaseQtyApi }

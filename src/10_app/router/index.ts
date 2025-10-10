@@ -1,11 +1,7 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 import { setMetaTags } from '@/60_shared/lib/metaTags'
-import {
-  pageMain,
-  pageAbout,
-  pageProjects
-} from '@/70_content/singularPages/';
+import { pageMain, pageAbout, pageProjects } from '@/70_content/singularPages/'
 import { getProjectMiddleware } from '@/20_pages/ProjectPage'
 
 const routes: Array<RouteRecordRaw> = [
@@ -37,10 +33,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('@/20_pages/NotFoundPage'),
-    beforeEnter: () => setMetaTags({
-      title: 'Страница не найдена',
-      description: 'Страница не найдена',
-    }),
+    beforeEnter: () =>
+      setMetaTags({
+        title: 'Страница не найдена',
+        description: 'Страница не найдена',
+      }),
   },
 ]
 

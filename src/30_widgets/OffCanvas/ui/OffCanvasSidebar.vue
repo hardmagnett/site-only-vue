@@ -2,49 +2,41 @@
   <div
     class="off-canvas-sidebar"
     :class="{
-      'off-canvas-sidebar--sidebar-visible': isOffCanvasOpen
+      'off-canvas-sidebar--sidebar-visible': isOffCanvasOpen,
     }"
   >
     <div class="off-canvas-sidebar__not-scrollable-top">
-      <div
-        class="off-canvas-sidebar__cross mdi mdi-close-thick"
-        @click="toggleOffCanvas"
-      ></div>
-      <p style="color: orange;">сюда можно добавить логотип</p>
+      <div class="off-canvas-sidebar__cross mdi mdi-close-thick" @click="toggleOffCanvas"></div>
+      <p style="color: orange">сюда можно добавить логотип</p>
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
-      <OffCanvasContent/>
+      <OffCanvasContent />
     </div>
     <div class="off-canvas-sidebar__not-scrollable-bottom">
       <!--Сюда, возможно, можно добавить что-нибудь ещё. Сделано на всякий случай. -->
     </div>
-
-
   </div>
 
   <div
     class="off-canvas-overlay"
     :class="{
-      'off-canvas-overlay--sidebar-visible': isOffCanvasOpen
+      'off-canvas-overlay--sidebar-visible': isOffCanvasOpen,
     }"
     @click="toggleOffCanvas"
-  >
-
-  </div>
+  ></div>
 </template>
 
 <script setup lang="ts">
 import { watch } from 'vue'
 import OffCanvasContent from './OffCanvasContent.vue'
 import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
-watch(isOffCanvasOpen,(newVal)=>{
-  if (newVal){
+watch(isOffCanvasOpen, (newVal) => {
+  if (newVal) {
     document.body.classList.add('mod--stop-scrolling')
   } else {
     document.body.classList.remove('mod--stop-scrolling')
   }
 })
-
 </script>
 
 <style scoped>
@@ -107,7 +99,7 @@ watch(isOffCanvasOpen,(newVal)=>{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 100500;
   pointer-events: none;
   opacity: 0;
