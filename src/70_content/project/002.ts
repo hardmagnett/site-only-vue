@@ -10,7 +10,7 @@ export default {
   },
   descShort: 'Короткое описание 2',
   descLong: 'Длинное описание 2',
-  imageMain: '/img.jpg',
+  imageMain: 'img.jpg',
   content: '',
   projectPhaseQtyId: 1,
   projectPlacementId: 'flat'

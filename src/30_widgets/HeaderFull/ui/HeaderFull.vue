@@ -1,15 +1,12 @@
 <template>
   <div class="header-full header z-header clr-bg-small--alt">
-    <div class="header__line">
-
-    </div>
+    <div class="header__line"></div>
     <div class="header__first">
       <div class="container">
         <OffCanvasButton/>
         <ContactsMenu/>
-        <!--<? include "{$mv -> views_path}04_features/contacts-menu/contacts-menu.php";?>-->
         <div class="mod--flex-spacer"></div>
-        <!--<? include "{$mv -> views_path}04_features/social-links/social-links.php";?>-->
+        <SocialLinks/>
       </div>
 
     </div>
@@ -33,6 +30,7 @@ import { } from 'vue'
 import { OffCanvasButton } from '@/30_widgets/OffCanvas'
 import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 import { ContactsMenu } from '@/40_features/ContactsMenu'
+import { SocialLinks } from '@/40_features/SocialLinks'
 
 </script>
 
