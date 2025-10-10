@@ -2,7 +2,7 @@ import allSocialLinksRaw from '@/70_content/socialLink'
 
 class SocialLinksApi {
   getAllActiveSocialLinks = () => {
-    let allActiveSocialLinks = allSocialLinksRaw
+    const allActiveSocialLinks = allSocialLinksRaw
       .filter(link=>!link.hidden)
       .map(link=> {
         return {

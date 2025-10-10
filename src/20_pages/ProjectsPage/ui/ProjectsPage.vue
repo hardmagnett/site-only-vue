@@ -22,7 +22,7 @@ import { } from 'vue'
 import { ProjectsApi } from '@/50_entities/project'
 
 const projectsApi = new ProjectsApi()
-let allProjects = projectsApi.getAllProjects()
+const allProjects = projectsApi.getAllProjects()
 
 
 </script>

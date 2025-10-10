@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute, onBeforeRouteUpdate  } from 'vue-router';
 import { type Project, ProjectsApi } from '@/50_entities/project'
 import { getProjectMiddleware } from '@/20_pages/ProjectPage'
@@ -28,10 +28,10 @@ const getProject = ()=>{
     .getProjectBySlug({slug: route.params.projectSlug as string})as Project
 }
 
-let project = ref<Project>(getProject())
+const project = ref<Project>(getProject())
 
 
-watch(() => route.params.projectSlug,(slug) => {
+watch(() => route.params.projectSlug,() => {
   project.value = getProject()
 })
 

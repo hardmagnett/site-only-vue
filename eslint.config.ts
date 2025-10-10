@@ -12,6 +12,23 @@ export default defineConfigWithVueTs(
   {
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}'],
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          // Объект ошибки принудительно передается в catch(e)
+          // но далеко не всегда есть необходимость её выводить или ещё как-то использовать.
+          // Можно называть переменные ошибок например ingoreErr, и тогда они не будут линтоваться.
+          "caughtErrorsIgnorePattern": "^ignore",
+        }
+      ],
+      'no-console': ["error", { allow: ["warn", "error"] }]
+    },
+    languageOptions: {
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname, // Set the root directory for tsconfig resolution
+      }
+    }
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),

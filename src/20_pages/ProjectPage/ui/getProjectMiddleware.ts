@@ -10,7 +10,7 @@ const projectsApi = new ProjectsApi()
 
 export const getProjectMiddleware = (to: RouteLocationNormalized)=>{
   const router = useRouter();
-  let slug = to.params.projectSlug as string
+  const slug = to.params.projectSlug as string
   const projectThatFound = projectsApi.getProjectBySlug({slug: slug})
   if (!projectThatFound) {
     router.push({name: 'NotFound'})

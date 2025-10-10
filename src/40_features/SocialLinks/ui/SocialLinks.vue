@@ -19,7 +19,7 @@
 import { SocialLinkComp, SocialLinksApi } from '@/50_entities/socialLink'
 
 const socialLinksApi = new SocialLinksApi()
-let allActiveSocialLinks = socialLinksApi.getAllActiveSocialLinks()
+const allActiveSocialLinks = socialLinksApi.getAllActiveSocialLinks()
 
 
 </script>

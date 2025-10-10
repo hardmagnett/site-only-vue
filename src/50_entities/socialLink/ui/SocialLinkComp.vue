@@ -18,7 +18,7 @@ import type { SocialLink } from '@/50_entities/socialLink'
 export interface Props {
   link: SocialLink
 }
-const props = withDefaults(defineProps<Props>(), {})
+withDefaults(defineProps<Props>(), {})
 
 </script>
 
