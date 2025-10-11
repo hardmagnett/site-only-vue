@@ -11,11 +11,9 @@
     </div>
     <div class="header__second">
       <div class="container">
-        <!--<?-->
-        <!--    $cssModifiers="off-canvas-button&#45;&#45;big";-->
-        <!--    $id="off-canvas-button&#45;&#45;big";-->
-        <!--    include "{$mv -> views_path}03_widgets/off-canvas/off-canvas-button.php";-->
-        <!--?>-->
+        <OffCanvasButton
+          class="off-canvas-button--big"
+        />
         <MainLogo class="main-logo--on-dark" />
         <!--<? include "{$mv -> views_path}04_features/main-menu/main-menu.php";?>-->
       </div>
@@ -55,6 +53,7 @@ import { SocialLinks } from '@/40_features/SocialLinks'
 
     /*display: flex;*/
     .container {
+      height: var(--header-second-height);
       display: flex;
       align-items: center;
       gap: var(--gap-flex);
