@@ -4,11 +4,11 @@ export const pageAbout = {
   content: markdownContent,
   imageMain: '',
   meta: {
-    title: 'TITLE ABOUT',
-    description: 'DESK ABOUT',
+    title: 'Обо мне',
+    description: 'Привет. Меня зовут Вадим Емцов.',
   },
   slug: '',
-  descShort: 'desc short',
-  title: 'tisle',
-  descLong: 'desc long',
+  descShort: 'Привет. Меня зовут Вадим Емцов.',
+  title: 'Обо мне',
+  descLong: 'Привет. Меня зовут Вадим Емцов.',
 } satisfies PageAbout

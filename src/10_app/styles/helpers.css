@@ -9,6 +9,9 @@
   scrollbar-width: thin;
 }
 
+/**
+ * Например для body. Чтобы запретить его скроллить.
+ */
 .mod--stop-scrolling {
   height: 100%;
   overflow: hidden;

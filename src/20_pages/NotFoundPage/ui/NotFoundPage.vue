@@ -1,10 +1,24 @@
 <template>
   <div class="not-found-page">
-    <p>not-found-page</p>
+    <h1>
+      Страница
+      <span class="mod--no-wrap">
+        не найдена
+      </span>
+
+    </h1>
+    <p class="">
+      <span class="mod--no-wrapZ">Вы можете продолжить</span>
+      <span class="mod--no-wrap">
+        с <router-link :to="{name: 'main'}">главной страницы</router-link>.
+      </span>
+    </p>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { pageAbout } from '@/70_content/singularPages'
+</script>
 
 <style scoped>
 .not-found-page {

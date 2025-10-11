@@ -2,9 +2,6 @@
   <div class="about-page">
     <h1>{{ pageAbout.title }}</h1>
     <p class="p--bigger">{{ pageAbout.descLong }}</p>
-    <!--<p class="p&#45;&#45;bigger">{{foo}}</p>-->
-    <!--<div v-html="md.render(pageAbout.content)"></div>-->
-    <!--<div v-html="$renderMarkDown(pageAbout.content)"></div>-->
     <div v-html="$md.render(pageAbout.content)"></div>
   </div>
 </template>
