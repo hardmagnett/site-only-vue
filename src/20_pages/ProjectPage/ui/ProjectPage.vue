@@ -8,6 +8,13 @@
     <br>
     <br>
     <br>
+    <hr>
+    <p>
+      Галерея
+      <br>
+      https://www.lightgalleryjs.com/
+    </p>
+    <hr>
     <p>
       Здесь нужно вытащить 6 похожих проектов.
       <br>

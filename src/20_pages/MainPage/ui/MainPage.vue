@@ -1,7 +1,5 @@
 <template>
   <div class="main-page">
-    <p>Галерея</p>
-    <p>https://www.lightgalleryjs.com/</p>
     <h1>{{ pageMain.title }}</h1>
     <p class="p--bigger">{{ pageMain.descLong }}</p>
     <div v-html="$md.render(pageMain.content)"></div>
