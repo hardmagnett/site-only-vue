@@ -1,7 +1,8 @@
 import type { PageProjects } from '@/50_entities/singularPages'
 
+import markdownContent from './pageProjectsContent.md?raw'
 export const pageProjects = {
-  content: '',
+  content: markdownContent,
   imageMain: '',
   meta: {
     title: 'TITLE PROJECTS',
@@ -9,6 +10,6 @@ export const pageProjects = {
   },
   slug: '',
   descShort: 'desc short',
-  title: 'tisle',
+  title: 'Реализованные проекты',
   descLong: 'desc long',
 } satisfies PageProjects

@@ -1,6 +1,8 @@
 <template>
   <div class="projects-page">
-    <h1>projectS</h1>
+    <h1>{{ pageProjects.title }}</h1>
+    <div v-html="$md.render(pageProjects.content)"></div>
+
     <div v-for="project in allProjects" :key="project.slug">
       <hr />
       <router-link
@@ -22,6 +24,7 @@
 <script setup lang="ts">
 import {} from 'vue'
 import { ProjectsApi } from '@/50_entities/project'
+import { pageAbout, pageProjects } from '@/70_content/singularPages'
 
 const projectsApi = new ProjectsApi()
 const allProjects = projectsApi.getAllProjects()
