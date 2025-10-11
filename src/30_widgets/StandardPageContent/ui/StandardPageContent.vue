@@ -1,12 +1,14 @@
 <template>
   <div class="standard-page-content">
-    <p>title: {{pageBasic.title}}</p>
+    <h1>{{pageBasic.title}}</h1>
+    <div v-html="$md.render(pageBasic.content)"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { } from 'vue'
 import type { PageBasic } from '@/50_entities/singularPages'
+import { pageAbout } from '@/70_content/singularPages'
 export interface Props {
   pageBasic: PageBasic
 }

@@ -9,8 +9,6 @@
 <script setup lang="ts">
 import {} from 'vue'
 import { pageAbout } from '@/70_content/singularPages'
-// import markdownit from 'markdown-it'
-// const md = markdownit()
 </script>
 
 <style scoped>
