@@ -1,3 +1,5 @@
 export * from './pageMain'
 export * from './pageAbout'
 export * from './pageProjects'
+export * from './pageServiceEngineering'
+export * from './pageServiceAssembly'

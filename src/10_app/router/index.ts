@@ -12,6 +12,18 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: () => setMetaTags(pageMain.meta),
   },
   {
+    path: '/electric-panel-engineering',
+    name: 'service-engineering',
+    component: () => import('@/20_pages/ServiceEngineeringPage'),
+    beforeEnter: () => setMetaTags(pageAbout.meta),
+  },
+  {
+    path: '/electric-panel-assembly',
+    name: 'service-assembly',
+    component: () => import('@/20_pages/ServiceAssemblyPage'),
+    beforeEnter: () => setMetaTags(pageAbout.meta),
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/20_pages/AboutPage'),

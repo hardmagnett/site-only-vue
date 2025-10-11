@@ -9,6 +9,10 @@
           &nbsp;&nbsp;&nbsp;
           <router-link :to="{ name: 'projects' }">Проекты</router-link>
           &nbsp;&nbsp;&nbsp;
+          <router-link :to="{ name: 'service-engineering' }">Проектирование электрощитов</router-link>
+          &nbsp;&nbsp;&nbsp;
+          <router-link :to="{ name: 'service-assembly' }">Сборка электрощитов</router-link>
+          &nbsp;&nbsp;&nbsp;
           <router-link :to="{ name: 'about' }">Обо мне</router-link>
         </div>
         <router-view />
