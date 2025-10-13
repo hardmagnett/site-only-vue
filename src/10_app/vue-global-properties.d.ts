@@ -1,5 +1,5 @@
 import type { markdownit } from 'markdown-it'
-import Breakpoints from '@/10_app/stores/breakpoints.ts'
+import Breakpoints from '@/60_shared/stores/breakpoints.ts'
 
 declare module 'vue' {
   interface ComponentCustomProperties {

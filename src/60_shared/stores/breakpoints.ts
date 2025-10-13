@@ -17,8 +17,12 @@ function stopTransitionsOnDocumentResize() {
   }, 100);
 }
 
-export default class Breakpoints {
+class Breakpoints {
   private documentWidth: Ref<number>
+
+  /**
+   * Конструктор вызывается 1 раз даже при нескольких импортов разными способами. Проверено.
+   */
   constructor() {
     const documentElement = document.documentElement;
 
@@ -41,3 +45,5 @@ export default class Breakpoints {
   public isMdOrMore = computed(() => this.isEqualOrMoreThan.value("--bp-md"));
   public isSmOrMore = computed(() => this.isEqualOrMoreThan.value("--bp-sm"));
 }
+
+export default new Breakpoints()

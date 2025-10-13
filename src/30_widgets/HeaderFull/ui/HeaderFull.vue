@@ -17,7 +17,8 @@
         <MainLogo class="main-logo--on-dark" />
         <MainMenuNew />
         <p style="color: white;">-=isMdOrMore: {{ $breakpoints.isMdOrMore }}=-</p>
-        <p style="color: white;">-=isSmOrMore: {{ $breakpoints.isSmOrMore }}=-</p>
+        <!--<p style="color: white;">-=isSmOrMore: {{ $breakpoints.isSmOrMore }}=-</p>-->
+        <p style="color: white;">-=isSmOrMore: {{ breakpoints.isSmOrMore }}=-</p>
       </div>
     </div>
   </div>
@@ -30,9 +31,8 @@ import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 import { ContactsMenu } from '@/40_features/ContactsMenu'
 import { SocialLinks } from '@/40_features/SocialLinks'
 import { MainMenuNew } from '@/40_features/MainMenuNew'
-import { inject } from 'vue';
 
-// const $breakpoints = inject('$breakpoints');
+import breakpoints from '@/60_shared/stores/breakpoints.ts'
 
 </script>
 
