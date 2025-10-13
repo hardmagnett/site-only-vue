@@ -3,6 +3,10 @@
     <div class="app__all-but-footer">
       <OffCanvasSidebar />
       <HeaderFull />
+      <p>Menu Start</p>
+      <!--<? include $mv -> views_path."04_features/main-menu/main-menu-new.php";?>-->
+      <MainMenuNew />
+      <p>Menu End</p>
       <div class="container container--with-padding-top container--with-padding-bottom">
         <div>
           <router-link :to="{ name: 'main' }">Главная</router-link>
@@ -27,6 +31,7 @@
 import { OffCanvasSidebar } from '@/30_widgets/OffCanvas'
 import { HeaderFull } from '@/30_widgets/HeaderFull'
 import { FooterFull } from '@/30_widgets/FooterFull'
+import { MainMenuNew } from '@/40_features/MainMenuNew'
 </script>
 
 <style scoped>
