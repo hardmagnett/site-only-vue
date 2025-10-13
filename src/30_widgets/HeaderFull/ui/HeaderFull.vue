@@ -1,24 +1,36 @@
 <template>
   <div class="header-full header z-header clr-bg-small--alt">
     <div class="header__line"></div>
-    <div class="header__first">
+    <div class="header__first" v-if="$breakpoints.isSmOrMore.value">
       <div class="container">
-        <OffCanvasButton />
-        <ContactsMenu />
+        <!--<OffCanvasButton />-->
+        <!--:hideEmail="!$breakpoints.isSmOrMore.value"-->
+        <ContactsMenu
+
+          :hidePhone="!$breakpoints.isMdOrMore.value"
+        />
         <div class="mod--flex-spacer"></div>
-        <SocialLinks />
+        <SocialLinks v-if="$breakpoints.isSmOrMore.value" />
       </div>
     </div>
     <div class="header__second">
       <div class="container">
         <OffCanvasButton
+          v-if="!$breakpoints.isMdOrMore.value"
           class="off-canvas-button--big"
         />
         <MainLogo class="main-logo--on-dark" />
-        <MainMenuNew />
-        <p style="color: white;">-=isMdOrMore: {{ $breakpoints.isMdOrMore }}=-</p>
-        <!--<p style="color: white;">-=isSmOrMore: {{ $breakpoints.isSmOrMore }}=-</p>-->
-        <p style="color: white;">-=isSmOrMore: {{ breakpoints.isSmOrMore }}=-</p>
+        <MainMenuNew
+          v-if="$breakpoints.isMdOrMore.value"
+        />
+
+        <template v-if="!$breakpoints.isMdOrMore.value">
+          <div class="mod--flex-spacer"></div>
+          <ContactsMenu
+            hideEmail
+          />
+        </template>
+
       </div>
     </div>
   </div>

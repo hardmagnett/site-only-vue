@@ -1,7 +1,7 @@
 <template>
   <div class="contacts-menu">
-    <a :href="`mailto:${singularData.email}`">{{ singularData.email }}</a>
-    <a :href="`tel:${singularData.phoneForLink}`">{{ singularData.phoneForDisplay }}</a>
+    <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">{{ singularData.phoneForDisplay }}</a>
+    <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">{{ singularData.email }}</a>
   </div>
 </template>
 
@@ -9,6 +9,15 @@
 // todo:: сделать возможность их выводить не только горизонтально, а и вертикально. Нужно для сайдбара.
 import {} from 'vue'
 import singularData from '@/70_content/singularData.ts'
+
+export interface Props {
+  hideEmail?: boolean
+  hidePhone?: boolean
+}
+withDefaults(defineProps<Props>(), {
+  hideEmail: false,
+  hidePhone: false
+})
 </script>
 
 <style scoped>

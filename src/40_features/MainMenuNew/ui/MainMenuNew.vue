@@ -38,6 +38,15 @@
         </ul>
       </li>
 
+      <!--Калькулятор буду делать в самую последнюю очередь.-->
+      <!--Он здесь лишь чтобы посмотреть помещается он или нет в меню.-->
+      <!--Если мешает - закомменть.-->
+      <li :class="{'active': route.name === 'about'}">
+        <router-link :to="{name: 'about'}" @click="clickOnLinkHandler">
+          Калькулятор
+        </router-link>
+      </li>
+
       <li :class="{'active': route.name === 'about'}">
         <router-link :to="{name: 'about'}" @click="clickOnLinkHandler">
           Обо мне
@@ -49,8 +58,16 @@
 
 <script setup lang="ts">
 import { onMounted, useTemplateRef } from 'vue'
-import $ from "jquery";
-import 'smartmenus'
+// import $ from "jquery";
+// import $ from "@/80_rare_modules/jquery-3.7.1.min.js";
+// Для SmartMenus и его особенностей (см. ниже)
+// jQuery можно подключить только так.
+// И это хорошо - не будет этих ужасных зависимостей в node modules.
+import "@/80_rare_modules/jquery-3.7.1.min.js";
+// import 'smartmenus'
+// Если импортировать из node_modules, то нельзя изменить брекпоинт.
+// Его можно изменить лишь меняя файл темы. Через конфигурацию никак нельзя.
+import '@/80_rare_modules/smartmenus-1.2.1/jquery.smartmenus.min.js'
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const ulNodeForSmartMenus = useTemplateRef<HTMLUListElement>('ulNodeForSmartMenus')
@@ -58,6 +75,7 @@ const emit = defineEmits<{
   menuItemClick: [];
 }>()
 
+// todo:: удалить jquery и smartmenus из package.json
 const clickOnLinkHandler = ()=>{
   emit('menuItemClick')
 }
@@ -126,6 +144,7 @@ onMounted(()=>{
 
         font-weight: 600;
         font-size: 16px;
+        /*font-size: 14px;*/
 
         line-height: var(--a-level-1-height);
         height: var(--a-level-1-height);
@@ -206,6 +225,7 @@ onMounted(()=>{
   }
 
   @container style(--bp-md-or-more) {
+  /*@container style(--bp-sm-or-more) {*/
     --a-level-1-height: 75px;
     --a-level-2-height: 60px;
     /*border: 10px solid darkred;*/
@@ -234,6 +254,8 @@ onMounted(()=>{
           line-height: var(--a-level-1-height) !important;
           padding-left: var(--gap) !important;
           padding-right: var(--gap) !important;
+          /*padding-left: calc(var(--gap) / 2) !important;*/
+          /*padding-right: calc(var(--gap) / 2) !important;*/
           padding-top: 0 !important;
           padding-bottom: 0 !important;
           .sub-arrow {
@@ -256,6 +278,7 @@ onMounted(()=>{
             }
           }
           &.has-submenu {
+            /*padding-right: calc(var(--gap) * 3) !important;*/
             padding-right: calc(var(--gap) * 3) !important;
           }
           /*level 1*/

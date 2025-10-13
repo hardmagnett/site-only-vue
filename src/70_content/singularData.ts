@@ -4,5 +4,6 @@ const singularData = {
   phoneForLink: '+74951112233',
   // email: 'james@mail.ru',
   email: 'superduperlongemail@mail.ru',
+  // email: 'hardmagnett@yandex.ru',
 }
 export default singularData
