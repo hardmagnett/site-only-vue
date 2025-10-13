@@ -1,22 +1,44 @@
 <template>
   <nav class="main-menu-new">
     <ul id="selector-for-smartmenus" class="sm sm-simple">
-      <li class="first active"><a href="/" class="">Главная</a></li>
-      <li><a href="/projects/" class=" has-submenu">Примеры работ</a>
+      <!--Так было в mv-framework. Пока-что оставить.-->
+      <!--<li class="first active"><a href="/" class="">Главная</a></li>-->
+
+      <li :class="{'active': route.name === 'main'}">
+        <router-link :to="{name: 'main'}">
+          Главная
+        </router-link>
+      </li>
+
+      <li :class="{'active': route.name === 'projects'}">
+        <router-link :to="{name: 'projects'}">
+          Примеры работ
+        </router-link>
+      </li>
+
+      <li :class="{'active': ['service-engineering', 'service-assembly'].includes(String(route.name))}">
+        <a class=" has-submenu">Услуги</a>
         <ul>
-          <li class="first"><a href="/1-phase/" class="">Однофазные</a></li>
-          <li><a href="/3-phases/" class="">Трехфазные</a></li>
-          <li><a href="/house/" class="">Для дома</a></li>
-          <li><a href="/for-flat/" class="">Для квартиры</a></li>
+          <li :class="{'active': route.name === 'service-engineering'}">
+            <router-link :to="{name: 'service-engineering'}">
+              Проектирование электрощитов
+            </router-link>
+          </li>
+
+          <li :class="{'active': route.name === 'service-assembly'}">
+            <router-link :to="{name: 'service-assembly'}">
+              Сборка электрощитов
+            </router-link>
+          </li>
+
         </ul>
       </li>
-      <li><a class=" has-submenu">Услуги</a>
-        <ul>
-          <li class="first"><a href="/electric-panel-design/" class="">Проектирование электрощитов</a></li>
-          <li><a href="/electric-panel-assembly/" class="">Сборка электрощитов</a></li>
-        </ul>
+
+      <li :class="{'active': route.name === 'about'}">
+        <router-link :to="{name: 'about'}">
+          Обо мне
+        </router-link>
       </li>
-      <li><a href="/about/" class="">Обо мне</a></li>
     </ul>
   </nav>
 </template>
@@ -25,6 +47,8 @@
 import { onMounted } from 'vue'
 import $ from "jquery";
 import 'smartmenus'
+import { useRoute } from 'vue-router';
+const route = useRoute();
 
 // onBeforeMount(()=>{
 // В onBeforeMount эта jQuery-херь не срабатывала.
