@@ -10,7 +10,7 @@
       <p style="color: orange">сюда можно добавить логотип</p>
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
-      <OffCanvasContent />
+      <OffCanvasContent @menuItemClick="isOffCanvasOpen = false" />
     </div>
     <div class="off-canvas-sidebar__not-scrollable-bottom">
       <!--Сюда, возможно, можно добавить что-нибудь ещё. Сделано на всякий случай. -->

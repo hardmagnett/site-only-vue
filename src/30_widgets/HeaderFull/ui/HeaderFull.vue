@@ -15,7 +15,7 @@
           class="off-canvas-button--big"
         />
         <MainLogo class="main-logo--on-dark" />
-        <!--<? include "{$mv -> views_path}04_features/main-menu/main-menu.php";?>-->
+        <MainMenuNew />
       </div>
     </div>
   </div>
@@ -27,6 +27,7 @@ import { OffCanvasButton } from '@/30_widgets/OffCanvas'
 import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 import { ContactsMenu } from '@/40_features/ContactsMenu'
 import { SocialLinks } from '@/40_features/SocialLinks'
+import { MainMenuNew } from '@/40_features/MainMenuNew'
 </script>
 
 <style scoped>

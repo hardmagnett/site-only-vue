@@ -1,6 +1,6 @@
 <template>
   <div class="off-canvas-content">
-    <MainMenuNew />
+    <MainMenuNew @menuItemClick="emit('menuItemClick')" />
     <div class="off-canvas-content__with-horizontal-padding">
       <ContactsMenu />
       <SocialLinks />
@@ -13,6 +13,9 @@ import {} from 'vue'
 import { ContactsMenu } from '@/40_features/ContactsMenu'
 import { SocialLinks } from '@/40_features/SocialLinks'
 import { MainMenuNew } from '@/40_features/MainMenuNew'
+const emit = defineEmits<{
+  menuItemClick: [];
+}>()
 </script>
 
 <style scoped>

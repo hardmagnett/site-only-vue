@@ -9,13 +9,13 @@
       <!--<li class="first active"><a href="/" class="">Главная</a></li>-->
 
       <li :class="{'active': route.name === 'main'}">
-        <router-link :to="{name: 'main'}">
+        <router-link :to="{name: 'main'}" @click="clickOnLinkHandler">
           Главная
         </router-link>
       </li>
 
       <li :class="{'active': route.name === 'projects'}">
-        <router-link :to="{name: 'projects'}">
+        <router-link :to="{name: 'projects'}" @click="clickOnLinkHandler">
           Примеры работ
         </router-link>
       </li>
@@ -24,13 +24,13 @@
         <a class=" has-submenu">Услуги</a>
         <ul>
           <li :class="{'active': route.name === 'service-engineering'}">
-            <router-link :to="{name: 'service-engineering'}">
+            <router-link :to="{name: 'service-engineering'}" @click="clickOnLinkHandler">
               Проектирование электрощитов
             </router-link>
           </li>
 
           <li :class="{'active': route.name === 'service-assembly'}">
-            <router-link :to="{name: 'service-assembly'}">
+            <router-link :to="{name: 'service-assembly'}" @click="clickOnLinkHandler">
               Сборка электрощитов
             </router-link>
           </li>
@@ -39,7 +39,7 @@
       </li>
 
       <li :class="{'active': route.name === 'about'}">
-        <router-link :to="{name: 'about'}" @click="clickHandler">
+        <router-link :to="{name: 'about'}" @click="clickOnLinkHandler">
           Обо мне
         </router-link>
       </li>
@@ -54,15 +54,24 @@ import 'smartmenus'
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const ulNodeForSmartMenus = useTemplateRef<HTMLUListElement>('ulNodeForSmartMenus')
+const emit = defineEmits<{
+  menuItemClick: [];
+}>()
 
-const clickHandler = ()=>{
-  console.log('clickHandler')
+const clickOnLinkHandler = ()=>{
+  emit('menuItemClick')
 }
 
-// onBeforeMount(()=>{
-// В onBeforeMount эта jQuery-херь не срабатывала.
+//
+/**
+ * В onBeforeMount эта jQuery-херь не срабатывала.
+ *
+ * Подходящего события для обработки клика по ссылке у SmartMenus нет. (подробности в моем гисте).
+ * Поэтому раскопировал обработчик по всему темплейту.
+ */
 onMounted(()=>{
-  $(ulNodeForSmartMenus.value).smartmenus({
+
+  let smartMenusJQueryObject = $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
     // Это даже удобная тактика на сенсоре на большом экране.
     collapsibleBehavior: 'accordion', // Только для тач

@@ -3,10 +3,9 @@
     <div class="app__all-but-footer">
       <OffCanvasSidebar />
       <HeaderFull />
-      <p>Menu Start</p>
-      <!--<? include $mv -> views_path."04_features/main-menu/main-menu-new.php";?>-->
-      <MainMenuNew />
-      <p>Menu End</p>
+      <!--<p>Menu Start</p>-->
+      <!--<MainMenuNew />-->
+      <!--<p>Menu End</p>-->
       <div class="container container--with-padding-top container--with-padding-bottom">
         <div>
           <router-link :to="{ name: 'main' }">Главная</router-link>
