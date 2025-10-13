@@ -70,7 +70,7 @@ const clickOnLinkHandler = ()=>{
  * Поэтому раскопировал обработчик по всему темплейту.
  */
 onMounted(()=>{
-
+  // @ts-ignore: Какой нах TS при использовании Vue и jQuery вместе.
   let smartMenusJQueryObject = $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
     // Это даже удобная тактика на сенсоре на большом экране.
