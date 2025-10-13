@@ -35,7 +35,7 @@
       </li>
 
       <li :class="{'active': route.name === 'about'}">
-        <router-link :to="{name: 'about'}">
+        <router-link :to="{name: 'about'}" @click="clickHandler">
           Обо мне
         </router-link>
       </li>
@@ -49,6 +49,10 @@ import $ from "jquery";
 import 'smartmenus'
 import { useRoute } from 'vue-router';
 const route = useRoute();
+
+const clickHandler = ()=>{
+  console.log('clickHandler')
+}
 
 // onBeforeMount(()=>{
 // В onBeforeMount эта jQuery-херь не срабатывала.
@@ -90,6 +94,12 @@ onMounted(()=>{
     > li {
       border-bottom: 1px solid var(--clr-bg-header-second);
       /*level 1*/
+
+      &.active {
+        > a {
+          color: var(--clr-main) !important;
+        }
+      }
 
       > a {
         text-transform: uppercase;
@@ -144,6 +154,11 @@ onMounted(()=>{
       }
       > ul {
         > li {
+          &.active {
+            > a {
+              color: var(--clr-main) !important;
+            }
+          }
 
           > a {
             /*Level 2*/
