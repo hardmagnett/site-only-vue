@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import {} from 'vue'
 import { ProjectsApi } from '@/50_entities/project'
-import { pageAbout, pageProjects } from '@/70_content/singularPages'
+import { pageProjects } from '@/70_content/singularPages'
 
 const projectsApi = new ProjectsApi()
 const allProjects = projectsApi.getAllProjects()

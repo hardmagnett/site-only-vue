@@ -8,7 +8,6 @@
 <script setup lang="ts">
 import { } from 'vue'
 import type { PageBasic } from '@/50_entities/singularPages'
-import { pageAbout } from '@/70_content/singularPages'
 export interface Props {
   pageBasic: PageBasic
 }

@@ -30,7 +30,6 @@
 import { OffCanvasSidebar } from '@/30_widgets/OffCanvas'
 import { HeaderFull } from '@/30_widgets/HeaderFull'
 import { FooterFull } from '@/30_widgets/FooterFull'
-import { MainMenuNew } from '@/40_features/MainMenuNew'
 </script>
 
 <style scoped>

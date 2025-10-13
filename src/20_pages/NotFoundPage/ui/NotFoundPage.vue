@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { pageAbout } from '@/70_content/singularPages'
 </script>
 
 <style scoped>
