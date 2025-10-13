@@ -1,6 +1,10 @@
 <template>
   <nav class="main-menu-new">
-    <ul id="selector-for-smartmenus" class="sm sm-simple">
+    <ul
+      id="selector-for-smartmenus"
+      class="sm sm-simple"
+      ref="ulNodeForSmartMenus"
+    >
       <!--Так было в mv-framework. Пока-что оставить.-->
       <!--<li class="first active"><a href="/" class="">Главная</a></li>-->
 
@@ -44,11 +48,12 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 import $ from "jquery";
 import 'smartmenus'
 import { useRoute } from 'vue-router';
 const route = useRoute();
+const ulNodeForSmartMenus = useTemplateRef<HTMLUListElement>('ulNodeForSmartMenus')
 
 const clickHandler = ()=>{
   console.log('clickHandler')
@@ -57,7 +62,7 @@ const clickHandler = ()=>{
 // onBeforeMount(()=>{
 // В onBeforeMount эта jQuery-херь не срабатывала.
 onMounted(()=>{
-  $('#selector-for-smartmenus').smartmenus({
+  $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
     // Это даже удобная тактика на сенсоре на большом экране.
     collapsibleBehavior: 'accordion', // Только для тач
