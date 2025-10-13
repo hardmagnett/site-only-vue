@@ -13,6 +13,7 @@ const app = createApp(App)
 app.config.globalProperties.$md = markdownit()
 
 // todo:: всё что касается этих брекпоинтов - либо в гисты либо в наработки.
+// В шаблоне использовать так: {{ $breakpoints.isMdOrMore }}
 app.config.globalProperties.$breakpoints = breakpoints;
 
 app.use(router)
