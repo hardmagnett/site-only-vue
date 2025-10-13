@@ -22,12 +22,38 @@
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import { onMounted } from 'vue'
+import $ from "jquery";
+import 'smartmenus'
+
+// onBeforeMount(()=>{
+// В onBeforeMount эта jQuery-херь не срабатывала.
+onMounted(()=>{
+  $('#selector-for-smartmenus').smartmenus({
+    // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
+    // Это даже удобная тактика на сенсоре на большом экране.
+    collapsibleBehavior: 'accordion', // Только для тач
+
+    hideTimeout: 1, // Только для десктопа
+    showTimeout: 1, // Только для десктопа
+
+    // Брекпоинт (768) захардкожен в
+    // media/libs/smartmenus-1.2.1/css/sm-simple/sm-simple.css
+    // Хорошо хоть 1 раз захардкожен.
+  });
+})
 
 </script>
 
-<style scoped>
-/*Здесь - и мои стили, и оверрайдинг для библиотечной темы simple*/
+<style>
+/**
+ * Здесь - и мои стили, и оверрайдинг для библиотечной темы simple.
+ *
+ * ХЗ почему, но со scoped не работали:
+ * - стилизация стрелок-переворачивалок (анимация и иконка)
+ * - ещё что-то
+ */
+/**/
 
 
 .main-menu-new {
@@ -159,11 +185,12 @@ import { } from 'vue'
           padding-bottom: 0 !important;
           .sub-arrow {
             width:26px;
-            /*outline: 1px solid darkred;*/
+            /*outline: 1px solid green;*/
             &:before {
               font-size: 16px !important;
               font-weight: 600;
               font-family: var(--icon-font);
+              /*outline: 1px solid orange;*/
               content:  ' \F0140';
             }
           }
@@ -183,6 +210,7 @@ import { } from 'vue'
             line-height: var(--a-level-1-height) !important;
           }
           &:hover {
+            /*outline: 1px solid green !important;*/
             color: var(--clr-main) !important;
           }
         }
