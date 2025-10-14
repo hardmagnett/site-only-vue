@@ -5,23 +5,23 @@
     <p v-if="project.projectPhaseQty">{{ project.projectPhaseQty.title }}</p>
     <img width="100" :src="project.imageMain" />
 
-    <br>
-    <br>
-    <br>
-    <hr>
+    <br />
+    <br />
+    <br />
+    <hr />
     <p>
       Галерея
-      <br>
+      <br />
       https://www.lightgalleryjs.com/
     </p>
-    <hr>
+    <hr />
     <p>
       Здесь нужно вытащить 6 похожих проектов.
-      <br>
+      <br />
       Сначала с такими-же фазами, помещениями,
-      <br>
+      <br />
       Если не хватает, то добавить только с такими-же фазами,
-      <br>
+      <br />
       Если и их не хватает, то добить остальными.
     </p>
     <router-link

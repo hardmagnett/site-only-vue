@@ -3,7 +3,7 @@ import breakpoints from '@/60_shared/stores/breakpoints.ts'
 
 declare module 'vue' {
   interface ComponentCustomProperties {
-    $md: markdownit,
+    $md: markdownit
     $breakpoints: typeof breakpoints
   }
 }

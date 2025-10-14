@@ -5,12 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { } from 'vue'
+import {} from 'vue'
 import StandardPageContent from '@/30_widgets/StandardPageContent'
 import { pageServiceEngineering } from '@/70_content/singularPages'
-
 </script>
 
 <style scoped>
-.service-engineering-page {}
+.service-engineering-page {
+}
 </style>

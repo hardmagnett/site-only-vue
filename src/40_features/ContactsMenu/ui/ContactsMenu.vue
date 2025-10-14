@@ -1,6 +1,8 @@
 <template>
   <div class="contacts-menu">
-    <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">{{ singularData.phoneForDisplay }}</a>
+    <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">{{
+      singularData.phoneForDisplay
+    }}</a>
     <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">{{ singularData.email }}</a>
   </div>
 </template>
@@ -16,7 +18,7 @@ export interface Props {
 }
 withDefaults(defineProps<Props>(), {
   hideEmail: false,
-  hidePhone: false
+  hidePhone: false,
 })
 </script>
 

@@ -13,8 +13,8 @@ html {
 
   --header-letter-spacing: 0.02rem;
 
-  /*--header-line-height: 1.2;*/    /*Как-то многовато было. Но пока-что оставил*/
-  --header-line-height: 1.0;        /*Так показалось получше.*/
+  /*--header-line-height: 1.2;*/ /*Как-то многовато было. Но пока-что оставил*/
+  --header-line-height: 1; /*Так показалось получше.*/
 
   --body-font-family: var(--abstract-font-family);
   --body-font-weight: 300;

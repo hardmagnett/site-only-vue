@@ -5,32 +5,21 @@
       <div class="container">
         <!--<OffCanvasButton />-->
         <!--:hideEmail="!$breakpoints.isSmOrMore.value"-->
-        <ContactsMenu
-
-          :hidePhone="!$breakpoints.isMdOrMore.value"
-        />
+        <ContactsMenu :hidePhone="!$breakpoints.isMdOrMore.value" />
         <div class="mod--flex-spacer"></div>
         <SocialLinks v-if="$breakpoints.isSmOrMore.value" />
       </div>
     </div>
     <div class="header__second">
       <div class="container">
-        <OffCanvasButton
-          v-if="!$breakpoints.isMdOrMore.value"
-          class="off-canvas-button--big"
-        />
+        <OffCanvasButton v-if="!$breakpoints.isMdOrMore.value" class="off-canvas-button--big" />
         <MainLogo class="main-logo--on-dark" />
-        <MainMenuNew
-          v-if="$breakpoints.isMdOrMore.value"
-        />
+        <MainMenuNew v-if="$breakpoints.isMdOrMore.value" />
 
         <template v-if="!$breakpoints.isMdOrMore.value">
           <div class="mod--flex-spacer"></div>
-          <ContactsMenu
-            hideEmail
-          />
+          <ContactsMenu hideEmail />
         </template>
-
       </div>
     </div>
   </div>
@@ -43,7 +32,6 @@ import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 import { ContactsMenu } from '@/40_features/ContactsMenu'
 import { SocialLinks } from '@/40_features/SocialLinks'
 import { MainMenuNew } from '@/40_features/MainMenuNew'
-
 </script>
 
 <style scoped>

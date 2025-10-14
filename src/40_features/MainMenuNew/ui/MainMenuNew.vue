@@ -1,56 +1,49 @@
 <template>
   <nav class="main-menu-new">
-    <ul
-      id="selector-for-smartmenus"
-      class="sm sm-simple"
-      ref="ulNodeForSmartMenus"
-    >
+    <ul id="selector-for-smartmenus" class="sm sm-simple" ref="ulNodeForSmartMenus">
       <!--Так было в mv-framework. Пока-что оставить.-->
       <!--<li class="first active"><a href="/" class="">Главная</a></li>-->
 
-      <li :class="{'active': route.name === 'main'}">
-        <router-link :to="{name: 'main'}" @click="clickOnLinkHandler">
-          Главная
-        </router-link>
+      <li :class="{ active: route.name === 'main' }">
+        <router-link :to="{ name: 'main' }" @click="clickOnLinkHandler"> Главная </router-link>
       </li>
 
-      <li :class="{'active': route.name === 'projects'}">
-        <router-link :to="{name: 'projects'}" @click="clickOnLinkHandler">
+      <li :class="{ active: route.name === 'projects' }">
+        <router-link :to="{ name: 'projects' }" @click="clickOnLinkHandler">
           Примеры работ
         </router-link>
       </li>
 
-      <li :class="{'active': ['service-engineering', 'service-assembly'].includes(String(route.name))}">
-        <a class=" has-submenu">Услуги</a>
+      <li
+        :class="{
+          active: ['service-engineering', 'service-assembly'].includes(String(route.name)),
+        }"
+      >
+        <a class="has-submenu">Услуги</a>
         <ul>
-          <li :class="{'active': route.name === 'service-engineering'}">
-            <router-link :to="{name: 'service-engineering'}" @click="clickOnLinkHandler">
+          <li :class="{ active: route.name === 'service-engineering' }">
+            <router-link :to="{ name: 'service-engineering' }" @click="clickOnLinkHandler">
               Проектирование электрощитов
             </router-link>
           </li>
 
-          <li :class="{'active': route.name === 'service-assembly'}">
-            <router-link :to="{name: 'service-assembly'}" @click="clickOnLinkHandler">
+          <li :class="{ active: route.name === 'service-assembly' }">
+            <router-link :to="{ name: 'service-assembly' }" @click="clickOnLinkHandler">
               Сборка электрощитов
             </router-link>
           </li>
-
         </ul>
       </li>
 
       <!--Калькулятор буду делать в самую последнюю очередь.-->
       <!--Он здесь лишь чтобы посмотреть помещается он или нет в меню.-->
       <!--Если мешает - закомменть.-->
-      <li :class="{'active': route.name === 'about'}">
-        <router-link :to="{name: 'about'}" @click="clickOnLinkHandler">
-          Калькулятор
-        </router-link>
+      <li :class="{ active: route.name === 'about' }">
+        <router-link :to="{ name: 'about' }" @click="clickOnLinkHandler"> Калькулятор </router-link>
       </li>
 
-      <li :class="{'active': route.name === 'about'}">
-        <router-link :to="{name: 'about'}" @click="clickOnLinkHandler">
-          Обо мне
-        </router-link>
+      <li :class="{ active: route.name === 'about' }">
+        <router-link :to="{ name: 'about' }" @click="clickOnLinkHandler"> Обо мне </router-link>
       </li>
     </ul>
   </nav>
@@ -63,20 +56,20 @@ import { onMounted, useTemplateRef } from 'vue'
 // Для SmartMenus и его особенностей (см. ниже)
 // jQuery можно подключить только так.
 // И это хорошо - не будет этих ужасных зависимостей в node modules.
-import "@/80_rare_modules/jquery-3.7.1.min.js";
+import '@/80_rare_modules/jquery-3.7.1.min.js'
 // import 'smartmenus'
 // Если импортировать из node_modules, то нельзя изменить брекпоинт.
 // Его можно изменить лишь меняя файл темы. Через конфигурацию никак нельзя.
 import '@/80_rare_modules/smartmenus-1.2.1/jquery.smartmenus.min.js'
-import { useRoute } from 'vue-router';
-const route = useRoute();
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const ulNodeForSmartMenus = useTemplateRef<HTMLUListElement>('ulNodeForSmartMenus')
 const emit = defineEmits<{
-  menuItemClick: [];
+  menuItemClick: []
 }>()
 
 // todo:: удалить jquery и smartmenus из package.json
-const clickOnLinkHandler = ()=>{
+const clickOnLinkHandler = () => {
   emit('menuItemClick')
 }
 
@@ -87,7 +80,7 @@ const clickOnLinkHandler = ()=>{
  * Подходящего события для обработки клика по ссылке у SmartMenus нет. (подробности в моем гисте).
  * Поэтому раскопировал обработчик по всему темплейту.
  */
-onMounted(()=>{
+onMounted(() => {
   // @ts-expect-error: Какой нах TS при использовании Vue и jQuery вместе.
   $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
@@ -100,9 +93,8 @@ onMounted(()=>{
     // Брекпоинт (768) захардкожен в
     // media/libs/smartmenus-1.2.1/css/sm-simple/sm-simple.css
     // Хорошо хоть 1 раз захардкожен.
-  });
+  })
 })
-
 </script>
 
 <style>
@@ -114,7 +106,6 @@ onMounted(()=>{
  * - ещё что-то
  */
 /**/
-
 
 .main-menu-new {
   --a-level-1-height: 48px;
@@ -136,7 +127,6 @@ onMounted(()=>{
       > a {
         text-transform: uppercase;
 
-
         display: block;
         padding: 0 var(--gap);
         color: var(--clr-txt-navigation);
@@ -151,7 +141,8 @@ onMounted(()=>{
         text-decoration: none;
         cursor: pointer;
         transition: all var(--time-short);
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           color: var(--clr-txt-navigation);
           padding: 0 var(--gap);
           font-family: var(--body-font-family);
@@ -170,15 +161,12 @@ onMounted(()=>{
             font-weight: 600;
             font-family: var(--icon-font);
             content: ' \F0140';
-
-
           }
         }
         &.highlighted {
           .sub-arrow {
             transform: rotate(180deg);
             &:before {
-
               /*content:  ' \F0143';*/
               content: ' \F0140';
             }
@@ -195,21 +183,22 @@ onMounted(()=>{
 
           > a {
             /*Level 2*/
-            display:block;
-            padding:0 var(--gap);
+            display: block;
+            padding: 0 var(--gap);
             color: var(--clr-txt-navigation);
             --size: 60px;
             line-height: var(--a-level-2-height);
             height: var(--a-level-2-height);
-            text-decoration:none;
+            text-decoration: none;
             cursor: pointer;
             font-family: var(--body-font-family);
             font-size: 14px;
             transition: color var(--time-short);
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
               /*outline: 1px solid darkred;*/
               /*background-color: red;*/
-              padding:0 var(--gap);
+              padding: 0 var(--gap);
               color: var(--clr-txt-navigation);
               font-family: var(--body-font-family);
               font-size: 14px;
@@ -217,7 +206,6 @@ onMounted(()=>{
               line-height: var(--a-level-2-height);
               text-decoration: none;
             }
-
           }
         }
       }
@@ -225,13 +213,13 @@ onMounted(()=>{
   }
 
   @container style(--bp-md-or-more) {
-  /*@container style(--bp-sm-or-more) {*/
+    /*@container style(--bp-sm-or-more) {*/
     --a-level-1-height: 75px;
     --a-level-2-height: 60px;
     /*border: 10px solid darkred;*/
     > ul {
       border: none !important;
-      background-color: var(--clr-bg-header-second) !important;;
+      background-color: var(--clr-bg-header-second) !important;
       > li {
         border: none !important;
         &.pathive {
@@ -259,21 +247,21 @@ onMounted(()=>{
           padding-top: 0 !important;
           padding-bottom: 0 !important;
           .sub-arrow {
-            width:26px;
+            width: 26px;
             /*outline: 1px solid green;*/
             &:before {
               font-size: 16px !important;
               font-weight: 600;
               font-family: var(--icon-font);
               /*outline: 1px solid orange;*/
-              content:  ' \F0140';
+              content: ' \F0140';
             }
           }
           &.highlighted {
             .sub-arrow {
               &:before {
                 /*content:  ' \F0143';*/
-                content:  ' \F0140';
+                content: ' \F0140';
               }
             }
           }
@@ -282,7 +270,8 @@ onMounted(()=>{
             padding-right: calc(var(--gap) * 3) !important;
           }
           /*level 1*/
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             line-height: var(--a-level-1-height) !important;
           }
           &:hover {
@@ -303,7 +292,8 @@ onMounted(()=>{
             }
             /*level 2*/
             > a {
-              &:hover, &:focus {
+              &:hover,
+              &:focus {
                 background-color: var(--clr-bg-header-first) !important;
               }
               &:hover {
