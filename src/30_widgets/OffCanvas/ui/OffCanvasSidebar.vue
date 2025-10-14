@@ -7,9 +7,6 @@
   >
     <div class="off-canvas-sidebar__not-scrollable-top">
       <div class="off-canvas-sidebar__cross mdi mdi-close-thick" @click="toggleOffCanvas"></div>
-      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
-      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
-      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
       <MainLogo class="main-logo--on-dark" />
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">

@@ -1,12 +1,5 @@
 <template>
   <div class="social-links">
-    <!--<? $links = $mv -> SocialLinks -> getAllActive();?>-->
-
-    <!--<? foreach($links as $link): ?>-->
-    <!--<? include $mv -> views_path."05_entities/social-link/social-link.php";?>-->
-    <!--<? endforeach; ?>-->
-
-    <!--<p style="color: white;" v-for="link in allActiveSocialLinks" :key="link.id">: {{ link.url }}</p>-->
     <SocialLinkComp v-for="link in allActiveSocialLinks" :key="link.id" :link="link" />
   </div>
 </template>

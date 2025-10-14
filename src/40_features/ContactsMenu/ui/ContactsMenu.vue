@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-// todo:: сделать возможность их выводить не только горизонтально, а и вертикально. Нужно для сайдбара.
 import {} from 'vue'
 import singularData from '@/70_content/singularData.ts'
 
@@ -40,6 +39,13 @@ withDefaults(defineProps<Props>(), {
     &:hover {
       color: var(--clr-main);
     }
+  }
+
+  &.contacts-menu--vertical {
+    flex-flow: column;
+    /*outline: 1px solid darkred;*/
+    /*gap: var(--gap);*/
+    gap: 0;
   }
 }
 </style>

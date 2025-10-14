@@ -11,7 +11,6 @@ const app = createApp(App)
 
 app.config.globalProperties.$md = markdownit()
 
-// todo:: всё что касается этих брекпоинтов - либо в гисты либо в наработки.
 // В шаблоне использовать так: {{ $breakpoints.isMdOrMore.value }}
 // и так <Comp v-if="$breakpoints.isMdOrMore.value" />
 app.config.globalProperties.$breakpoints = breakpoints

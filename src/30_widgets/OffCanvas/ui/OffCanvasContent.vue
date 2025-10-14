@@ -2,7 +2,7 @@
   <div class="off-canvas-content">
     <MainMenuNew @menuItemClick="emit('menuItemClick')" />
     <div class="off-canvas-content__with-horizontal-padding">
-      <ContactsMenu />
+      <ContactsMenu class="contacts-menu--vertical" />
       <SocialLinks />
     </div>
   </div>
@@ -20,6 +20,12 @@ const emit = defineEmits<{
 
 <style scoped>
 .off-canvas-content {
+  .main-menu-new {
+    margin-bottom: var(--gap);
+  }
+  .contacts-menu {
+    margin-bottom: var(--gap);
+  }
   .off-canvas-content__with-horizontal-padding {
     padding-left: var(--gap);
     padding-right: var(--gap);
