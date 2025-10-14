@@ -44,6 +44,7 @@ class Breakpoints {
   })
   public isMdOrMore = computed(() => this.isEqualOrMoreThan.value('--bp-md'))
   public isSmOrMore = computed(() => this.isEqualOrMoreThan.value('--bp-sm'))
+  public isXsOrMore = computed(() => this.isEqualOrMoreThan.value('--bp-xs'))
 }
 
 export default new Breakpoints()

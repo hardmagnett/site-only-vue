@@ -4,7 +4,6 @@
     <div class="header__first" v-if="$breakpoints.isSmOrMore.value">
       <div class="container">
         <!--<OffCanvasButton />-->
-        <!--:hideEmail="!$breakpoints.isSmOrMore.value"-->
         <ContactsMenu :hidePhone="!$breakpoints.isMdOrMore.value" />
         <div class="mod--flex-spacer"></div>
         <SocialLinks v-if="$breakpoints.isSmOrMore.value" />
@@ -12,12 +11,16 @@
     </div>
     <div class="header__second">
       <div class="container">
-        <OffCanvasButton v-if="!$breakpoints.isMdOrMore.value" class="off-canvas-button--big" />
+        <!--Здесь ваще с большим трудом всё влазило на 320px.-->
+        <!--Поэтому понатыкал проверок по брекпоинтам.-->
+        <OffCanvasButton
+          v-if="!$breakpoints.isMdOrMore.value"
+          :class="{'off-canvas-button--big': $breakpoints.isXsOrMore.value}"
+        />
         <MainLogo class="main-logo--on-dark" />
         <MainMenuNew v-if="$breakpoints.isMdOrMore.value" />
 
         <template v-if="!$breakpoints.isMdOrMore.value">
-          <div class="mod--flex-spacer"></div>
           <ContactsMenu hideEmail />
         </template>
       </div>
@@ -62,6 +65,11 @@ import { MainMenuNew } from '@/40_features/MainMenuNew'
       display: flex;
       align-items: center;
       gap: var(--gap-flex);
+
+      .contacts-menu {
+        /*Чтобы уходило вправо без flex-spacer-а*/
+        margin-left: auto;
+      }
     }
   }
 }

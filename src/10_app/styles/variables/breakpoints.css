@@ -1,12 +1,20 @@
 :root {
-  /*Значения переменных типа --bpXX должны совпадать с переменными типа --bp-XX-or-more.*/
+  /*Значения переменных типа --bp-XX должны совпадать с переменными типа --bp-XX-or-more.*/
+
+  /*Сам выдумал. Когда в шапку перестал помещаться телефон с иконками*/
+  /*У меня редми было 393. Значит все телефоны, у которых менее 380 - ваще мелкие и редкие.*/
+  --bp-xs: 380px;
+
   --bp-sm: 576px; /*Bootstrap 5*/
   --bp-md: 768px; /*Tailwind 2*/
   --bp-lg: 1024px; /*Tailwind 2*/
   --bp-xl: 1280px; /*Tailwind 2*/
   --bp-xxl: 1536px; /*Tailwind 2*/
 
-  --bp-xs-or-more: true;
+  --bp-xxs-or-more: true;
+  @media (min-width: 380px) {
+    --bp-xs-or-more: true;
+  }
   @media (min-width: 576px) {
     --bp-sm-or-more: true;
   }
@@ -22,7 +30,10 @@
   @media (min-width: 1536px) {
     --bp-xxl-or-more: true;
   }
-
+  /*========================*/
+  @media (max-width: 380px) {
+    --bp-xxs-or-less: true;
+  }
   @media (max-width: 575px) {
     --bp-xs-or-less: true;
   }
