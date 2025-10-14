@@ -1,7 +1,5 @@
 <template>
-  <!--class="social-link" href="<? echo $link['url'] ?>"-->
   <a class="social-link" :href="link.url" target="_blank">
-    <!--src="/<?echo $link['image']?>"-->
     <img :src="link.icon" />
   </a>
 </template>
@@ -31,6 +29,8 @@ withDefaults(defineProps<Props>(), {})
 
   img {
     transition: filter var(--time-short);
+    /*transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter, filter;*/
+    /*transition-duration: 3s;*/
     filter: invert(1) sepia(1) saturate(6) hue-rotate(175deg);
     width: var(--size-image);
     height: var(--size-image);

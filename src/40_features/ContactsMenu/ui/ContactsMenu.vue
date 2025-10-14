@@ -1,9 +1,16 @@
 <template>
   <div class="contacts-menu">
-    <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">{{
-      singularData.phoneForDisplay
-    }}</a>
-    <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">{{ singularData.email }}</a>
+    <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">
+      <!--<span></span>-->
+      <!--<span></span>-->
+      <img src="/images/icons/rutube.svg" />
+      <img src="/images/icons/telegram.svg" />
+      {{singularData.phoneForDisplay }}
+    </a>
+    <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">
+      <!--<span></span>-->
+      {{ singularData.email }}
+    </a>
   </div>
 </template>
 
@@ -36,9 +43,53 @@ withDefaults(defineProps<Props>(), {
     text-decoration: none;
     text-transform: uppercase;
     transition: color var(--time-short);
+    img {
+      /*outline: 1px solid darkred;*/
+      transition: filter var(--time-short);
+      /*transition: filter var(--time-medium);*/
+
+      /*-webkit-transition: all 1s ease;*/
+      /*transition: all 1s ease;*/
+
+      /*transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter, filter;*/
+      /*transition-duration: 3s;*/
+
+      /*transition: filter 2000ms;*/
+      --size: 16px;
+      width: var(--size);
+      height: var(--size);
+      filter: invert(1) sepia(1)  saturate(6) hue-rotate(175deg);
+    }
+
     &:hover {
       color: var(--clr-main);
+      img {
+        filter:
+
+          invert(35%)
+        sepia(94%)
+        saturate(2694%)
+        hue-rotate(357deg)
+        brightness(88%)
+        contrast(93%)
+
+
+
+
+
+
+      ;
+      /*brightness(0)*/     /*c brightness тоже не работает transition*/
+      /*saturate(100%)*/    /*c saturate не работает transition*/
+      /*invert(35%)*/
+      /*sepia(94%)*/
+      /*saturate(2694%)*/
+      /*hue-rotate(357deg)*/
+      /*brightness(88%)*/
+      /*contrast(93%)*/
+      }
     }
+
   }
 
   &.contacts-menu--vertical {

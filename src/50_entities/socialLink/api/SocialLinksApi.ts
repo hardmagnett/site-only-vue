@@ -7,7 +7,7 @@ class SocialLinksApi {
       .map((link) => {
         return {
           ...link,
-          icon: `/content/socialLink/${link.icon}`,
+          icon: `/images/icons/${link.icon}`,
         }
       })
     return allActiveSocialLinks
