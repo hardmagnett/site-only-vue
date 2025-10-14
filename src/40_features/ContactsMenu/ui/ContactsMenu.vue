@@ -2,7 +2,8 @@
   <div class="contacts-menu">
     <a v-if="!hidePhone" :href="`tel:${singularData.phoneForLink}`">
       <span class="contacts-menu__icons">
-        <SvgIconTelegram />
+        <SvgIconPhone />
+        <SvgIconMax />
         <SvgIconTelegram />
       </span>
 
@@ -10,7 +11,7 @@
     </a>
     <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">
       <span class="contacts-menu__icons">
-        <SvgIconTelegram />
+        <SvgIconEmail />
       </span>
 
       {{ singularData.email }}
@@ -22,6 +23,9 @@
 import {} from 'vue'
 import singularData from '@/70_content/singularData.ts'
 import SvgIconTelegram from '@/60_shared/ui/svg-icons/SvgIconTelegram.vue'
+import SvgIconMax from '@/60_shared/ui/svg-icons/SvgIconMax.vue'
+import SvgIconPhone from '@/60_shared/ui/svg-icons/SvgIconPhone.vue'
+import SvgIconEmail from '@/60_shared/ui/svg-icons/SvgIconEmail.vue'
 
 export interface Props {
   hideEmail?: boolean
@@ -54,9 +58,6 @@ withDefaults(defineProps<Props>(), {
       gap: calc(var(--gap) / 8);
     }
     svg {
-      /*display: inline;*/
-      /*line-height: var(--header-first-height);*/
-      /*vertical-align: text-bottom;*/
       transition: fill var(--time-short);
       /*outline: 1px solid darkred;*/
       --size: 16px;
