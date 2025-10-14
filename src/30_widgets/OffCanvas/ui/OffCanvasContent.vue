@@ -25,7 +25,7 @@ const emit = defineEmits<{
     padding-right: var(--gap);
   }
   color: var(--clr-txt-navigation);
-  padding-top: var(--gap);
+  /*padding-top: var(--gap);*/
   padding-bottom: var(--gap);
 }
 </style>

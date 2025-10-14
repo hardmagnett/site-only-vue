@@ -7,7 +7,10 @@
   >
     <div class="off-canvas-sidebar__not-scrollable-top">
       <div class="off-canvas-sidebar__cross mdi mdi-close-thick" @click="toggleOffCanvas"></div>
-      <p style="color: orange">сюда можно добавить логотип</p>
+      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
+      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
+      <!--<p style="color: orange">сюда можно добавить логотип</p>-->
+      <MainLogo class="main-logo--on-dark" />
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
       <OffCanvasContent @menuItemClick="isOffCanvasOpen = false" />
@@ -30,6 +33,7 @@
 import { watch } from 'vue'
 import OffCanvasContent from './OffCanvasContent.vue'
 import { isOffCanvasOpen, toggleOffCanvas } from '@/30_widgets/OffCanvas/stores'
+import MainLogo from '@/60_shared/ui/MainLogo/MainLogo.vue'
 watch(isOffCanvasOpen, (newVal) => {
   if (newVal) {
     document.body.classList.add('mod--stop-scrolling')
@@ -48,7 +52,8 @@ watch(isOffCanvasOpen, (newVal) => {
   /*position: fixed;*/
   position: fixed;
   z-index: 100501;
-  width: 90vw;
+  /*width: 90vw;*/
+  width: 80dvw;
   max-width: 370px;
   overflow-y: auto;
   transform: translateX(-100%);
@@ -57,6 +62,12 @@ watch(isOffCanvasOpen, (newVal) => {
   flex-flow: column nowrap;
   .off-canvas-sidebar__not-scrollable-top {
     flex: 0 0 auto;
+    padding-top: var(--gap);
+    padding-bottom: var(--gap);
+    display: flex;
+    /*align-content: center;*/
+    justify-content: center;
+    align-items: center;
     /*background-color: red;*/
   }
   .off-canvas-sidebar__scrollable {
