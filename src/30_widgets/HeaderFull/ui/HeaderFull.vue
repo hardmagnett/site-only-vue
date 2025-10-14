@@ -44,8 +44,6 @@ import { ContactsMenu } from '@/40_features/ContactsMenu'
 import { SocialLinks } from '@/40_features/SocialLinks'
 import { MainMenuNew } from '@/40_features/MainMenuNew'
 
-import breakpoints from '@/60_shared/stores/breakpoints.ts'
-
 </script>
 
 <style scoped>
