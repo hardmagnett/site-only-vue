@@ -69,7 +69,7 @@ watch(isOffCanvasOpen, (newVal) => {
   }
 
   .off-canvas-sidebar__cross {
-    --size: calc(var(--gap) * 2);
+    --size: calc(var(--gap) * 2.5);
     position: absolute;
     top: 0;
     right: 0;
@@ -84,6 +84,7 @@ watch(isOffCanvasOpen, (newVal) => {
       text-align: center;
       aspect-ratio: 1 / 1;
       line-height: var(--size);
+      font-size: 20px;
     }
     /*}*/
   }
