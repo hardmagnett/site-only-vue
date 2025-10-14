@@ -267,7 +267,16 @@ onMounted(() => {
           }
           &.has-submenu {
             /*padding-right: calc(var(--gap) * 3) !important;*/
-            padding-right: calc(var(--gap) * 3) !important;
+            /*padding-right: calc(var(--gap) * 3) !important;*/
+            padding-right: calc(var(--gap) * 2) !important;
+            .sub-arrow {
+              /*outline: 1px solid green;*/
+              right: 5px ;
+              &:before {
+                /*content:  ' \F0143';*/
+                /*content: ' \F0140';*/
+              }
+            }
           }
           /*level 1*/
           &:hover,
