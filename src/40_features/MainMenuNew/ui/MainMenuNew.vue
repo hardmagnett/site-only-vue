@@ -1,8 +1,6 @@
 <template>
   <nav class="main-menu-new">
     <ul id="selector-for-smartmenus" class="sm sm-simple" ref="ulNodeForSmartMenus">
-      <!--Так было в mv-framework. Пока-что оставить.-->
-      <!--<li class="first active"><a href="/" class="">Главная</a></li>-->
 
       <li :class="{ active: route.name === 'main' }">
         <router-link :to="{ name: 'main' }" @click="clickOnLinkHandler"> Главная </router-link>
@@ -50,9 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, useTemplateRef } from 'vue'
-// import $ from "jquery";
-// import $ from "@/80_rare_modules/jquery-3.7.1.min.js";
+import { onBeforeUnmount, onMounted, useTemplateRef } from 'vue'
 // Для SmartMenus и его особенностей (см. ниже)
 // jQuery можно подключить только так.
 // И это хорошо - не будет этих ужасных зависимостей в node modules.
@@ -68,7 +64,6 @@ const emit = defineEmits<{
   menuItemClick: []
 }>()
 
-// todo:: удалить jquery и smartmenus из package.json
 const clickOnLinkHandler = () => {
   emit('menuItemClick')
 }
@@ -80,7 +75,8 @@ const clickOnLinkHandler = () => {
  * Подходящего события для обработки клика по ссылке у SmartMenus нет. (подробности в моем гисте).
  * Поэтому раскопировал обработчик по всему темплейту.
  */
-onMounted(() => {
+
+const initSmartMenus = ()=>{
   // @ts-expect-error: Какой нах TS при использовании Vue и jQuery вместе.
   $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
@@ -94,6 +90,18 @@ onMounted(() => {
     // media/libs/smartmenus-1.2.1/css/sm-simple/sm-simple.css
     // Хорошо хоть 1 раз захардкожен.
   })
+}
+const reInitSmartMenus = ()=>{
+  // @ts-expect-error: Какой нах TS при использовании Vue и jQuery вместе.
+  $(ulNodeForSmartMenus.value).smartmenus('destroy');
+  initSmartMenus()
+}
+onMounted(() => {
+  initSmartMenus()
+  window.addEventListener('resize', reInitSmartMenus);
+})
+onBeforeUnmount(()=>{
+  window.removeEventListener('resize', reInitSmartMenus);
 })
 </script>
 
@@ -235,46 +243,35 @@ onMounted(() => {
         }
         /*level 1*/
         > a {
-          /*outline: 1px solid darkred;*/
           border: none !important;
           background-color: var(--clr-bg-header-second) !important;
           color: var(--clr-txt-navigation) !important;
           line-height: var(--a-level-1-height) !important;
           padding-left: var(--gap) !important;
           padding-right: var(--gap) !important;
-          /*padding-left: calc(var(--gap) / 2) !important;*/
-          /*padding-right: calc(var(--gap) / 2) !important;*/
           padding-top: 0 !important;
           padding-bottom: 0 !important;
           .sub-arrow {
             width: 26px;
-            /*outline: 1px solid green;*/
             &:before {
               font-size: 16px !important;
               font-weight: 600;
               font-family: var(--icon-font);
-              /*outline: 1px solid orange;*/
               content: ' \F0140';
             }
           }
           &.highlighted {
             .sub-arrow {
               &:before {
-                /*content:  ' \F0143';*/
                 content: ' \F0140';
               }
             }
           }
           &.has-submenu {
-            /*padding-right: calc(var(--gap) * 3) !important;*/
-            /*padding-right: calc(var(--gap) * 3) !important;*/
             padding-right: calc(var(--gap) * 2) !important;
             .sub-arrow {
-              /*outline: 1px solid green;*/
               right: 5px ;
               &:before {
-                /*content:  ' \F0143';*/
-                /*content: ' \F0140';*/
               }
             }
           }
@@ -284,7 +281,6 @@ onMounted(() => {
             line-height: var(--a-level-1-height) !important;
           }
           &:hover {
-            /*outline: 1px solid green !important;*/
             color: var(--clr-main) !important;
           }
         }
