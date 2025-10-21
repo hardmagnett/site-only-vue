@@ -7,7 +7,10 @@
   >
     <div class="off-canvas-sidebar__not-scrollable-top">
       <div class="off-canvas-sidebar__cross mdi mdi-close-thick" @click="toggleOffCanvas"></div>
-      <MainLogo class="main-logo--on-dark" />
+      <MainLogo
+        class="main-logo--on-dark"
+        @click="toggleOffCanvas"
+      />
     </div>
     <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
       <OffCanvasContent @menuItemClick="isOffCanvasOpen = false" />

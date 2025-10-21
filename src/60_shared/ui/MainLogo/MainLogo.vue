@@ -1,8 +1,9 @@
 <template>
-  <a class="main-logo z-logo" href="/">
-    <!--<?= $mv -> singletons -> logo_text ?>-->
+  <router-link
+    class="main-logo"
+    :to="{name: 'main'}">
     {{ singularData.logoText }}
-  </a>
+  </router-link>
 </template>
 
 <script setup lang="ts">
