@@ -12,7 +12,7 @@
         @click="toggleOffCanvas"
       />
     </div>
-    <div class="off-canvas-sidebar__scrollable mod--cool-scrollbar">
+    <div class="off-canvas-sidebar__scrollable">
       <OffCanvasContent @menuItemClick="isOffCanvasOpen = false" />
     </div>
     <div class="off-canvas-sidebar__not-scrollable-bottom">

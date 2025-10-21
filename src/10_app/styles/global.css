@@ -1,0 +1,7 @@
+/**
+ * Красивый скроллбар
+ */
+* {
+  scrollbar-color: var(--clr-bg-header-second) var(--clr-bg-header-first);
+  scrollbar-width: thin;
+}
