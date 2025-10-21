@@ -19,11 +19,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@types/jquery": "^3.5.33",
-    "jquery": "^3.7.1",
     "markdown-it": "^14.1.0",
     "normalize.css": "^8.0.1",
-    "smartmenus": "^1.2.1",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
