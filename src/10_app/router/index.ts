@@ -5,7 +5,9 @@ import {
   pageMain,
   pageAbout,
   pageProjects,
-  pageServiceEngineering, pageServiceAssembly, pageTests
+  pageServiceEngineering,
+  pageServiceAssembly,
+  pageTests,
 } from '@/70_content/singularPages/'
 import { getProjectMiddleware } from '@/20_pages/ProjectPage'
 

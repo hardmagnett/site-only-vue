@@ -7,7 +7,7 @@
         <SvgIconTelegram />
       </span>
 
-      {{singularData.phoneForDisplay }}
+      {{ singularData.phoneForDisplay }}
     </a>
     <a v-if="!hideEmail" :href="`mailto:${singularData.email}`">
       <span class="contacts-menu__icons">
@@ -71,9 +71,7 @@ withDefaults(defineProps<Props>(), {
       svg {
         fill: var(--clr-main);
       }
-
     }
-
   }
 
   &.contacts-menu--vertical {

@@ -1,7 +1,5 @@
 <template>
-  <router-link
-    class="main-logo"
-    :to="{name: 'main'}">
+  <router-link class="main-logo" :to="{ name: 'main' }">
     {{ singularData.logoText }}
   </router-link>
 </template>

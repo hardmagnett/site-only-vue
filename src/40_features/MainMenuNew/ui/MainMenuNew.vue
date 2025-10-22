@@ -1,7 +1,6 @@
 <template>
   <nav class="main-menu-new">
     <ul id="selector-for-smartmenus" class="sm sm-simple" ref="ulNodeForSmartMenus">
-
       <li :class="{ active: route.name === 'main' }">
         <router-link :to="{ name: 'main' }" @click="clickOnLinkHandler"> Главная </router-link>
       </li>
@@ -76,7 +75,7 @@ const clickOnLinkHandler = () => {
  * Поэтому раскопировал обработчик по всему темплейту.
  */
 
-const initSmartMenus = ()=>{
+const initSmartMenus = () => {
   // @ts-expect-error: Какой нах TS при использовании Vue и jQuery вместе.
   $(ulNodeForSmartMenus.value).smartmenus({
     // Поклацал эти 3 режима, и ничего лучше, чем accordion-default (как у Ваньки) не нашел.
@@ -91,17 +90,17 @@ const initSmartMenus = ()=>{
     // Хорошо хоть 1 раз захардкожен.
   })
 }
-const reInitSmartMenus = ()=>{
+const reInitSmartMenus = () => {
   // @ts-expect-error: Какой нах TS при использовании Vue и jQuery вместе.
-  $(ulNodeForSmartMenus.value).smartmenus('destroy');
+  $(ulNodeForSmartMenus.value).smartmenus('destroy')
   initSmartMenus()
 }
 onMounted(() => {
   initSmartMenus()
-  window.addEventListener('resize', reInitSmartMenus);
+  window.addEventListener('resize', reInitSmartMenus)
 })
-onBeforeUnmount(()=>{
-  window.removeEventListener('resize', reInitSmartMenus);
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', reInitSmartMenus)
 })
 </script>
 
@@ -270,7 +269,7 @@ onBeforeUnmount(()=>{
           &.has-submenu {
             padding-right: calc(var(--gap) * 2) !important;
             .sub-arrow {
-              right: 5px ;
+              right: 5px;
               &:before {
               }
             }

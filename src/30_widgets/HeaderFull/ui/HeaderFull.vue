@@ -15,7 +15,7 @@
         <!--Поэтому понатыкал проверок по брекпоинтам.-->
         <OffCanvasButton
           v-if="!$breakpoints.isMdOrMore.value"
-          :class="{'off-canvas-button--big': $breakpoints.isXsOrMore.value}"
+          :class="{ 'off-canvas-button--big': $breakpoints.isXsOrMore.value }"
         />
         <MainLogo class="main-logo--on-dark" />
         <MainMenuNew v-if="$breakpoints.isMdOrMore.value" />
