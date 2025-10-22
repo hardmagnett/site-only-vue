@@ -27,6 +27,12 @@ const processMDContent = ()=>{
   anchors.forEach(anchor => {
     const href = anchor.getAttribute('href');
     if (href && !href.startsWith('http') && !href.startsWith('//')) { // Check for internal links
+
+      const needTargetBlank = false
+      if (needTargetBlank) {
+        anchor.target = '_blank'
+      }
+
       anchor.addEventListener('click', (event) => {
         event.preventDefault(); // Prevent full page refresh
         router.push(href); // Navigate using Vue Router
