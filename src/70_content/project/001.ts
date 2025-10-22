@@ -14,4 +14,5 @@ export default {
   content: '',
   projectPhaseQtyId: 1,
   projectPlacementId: 'flat',
+  linesQty: 10,
 } satisfies Project

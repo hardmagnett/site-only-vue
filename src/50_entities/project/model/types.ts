@@ -5,6 +5,7 @@ import type { ProjectPlacement, ProjectPlacementId } from '@/50_entities/project
 export type Project = {
   id: string
   hidden?: true
+  linesQty: number      // Если будет необходимость их не выводить, то можно использовать значение 0.
   // projectPhaseQtyId: ProjectPhaseQtyId | null
   projectPhaseQtyId: ProjectPhaseQtyId
   projectPhaseQty?: ProjectPhaseQty
