@@ -8,8 +8,7 @@
 </template>
 
 <script setup lang="ts">
-// todo:: применить его везде где используется $md.render()
-import { useTemplateRef } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router'
 
 export interface Props {
@@ -22,6 +21,7 @@ const router = useRouter()
 const MDContent = useTemplateRef<HTMLDivElement>('MDContent')
 
 const processMDContent = ()=>{
+  console.log(2)
   const dynamicContentElement = MDContent.value as HTMLDivElement;
   // const dynamicContentElement = MDContent.value;
   const anchorsCollection = dynamicContentElement.getElementsByTagName('a');
@@ -32,10 +32,12 @@ const processMDContent = ()=>{
   // - что они не внешние
   // -
   anchors.forEach(anchor => {
-    const href = anchor.getAttribute('href');
-    if (href && !href.startsWith('http') && !href.startsWith('//')) { // Check for internal links
+    const href: string = anchor.getAttribute('href') ?? '';
+    const isLinkInternal = href && !href.startsWith('http') && !href.startsWith('//')
+    const isNoTargetBlank = anchor.target !== '_blank'
+    if (isLinkInternal && isNoTargetBlank) { // Check for internal links
 
-      const needTargetBlank = false
+      const needTargetBlank = anchor.target === '_blank'
       if (needTargetBlank) {
         anchor.target = '_blank'
       }
@@ -48,6 +50,7 @@ const processMDContent = ()=>{
   });
 }
 onMounted(()=>{
+  console.log(1)
   processMDContent()
 })
 
