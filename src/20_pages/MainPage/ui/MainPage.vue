@@ -2,7 +2,6 @@
   <div class="main-page">
     <h1>{{ pageMain.title }}</h1>
     <p class="p--bigger">{{ pageMain.descLong }}</p>
-    <!--<div v-html="$md.render(pageMain.content)"></div>-->
     <MarkdownRenderer :markdown="pageMain.content" />
   </div>
 </template>

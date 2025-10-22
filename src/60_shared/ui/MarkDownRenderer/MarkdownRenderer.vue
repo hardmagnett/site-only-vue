@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, useTemplateRef } from 'vue'
+import { onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router'
 
 export interface Props {
@@ -16,42 +16,44 @@ export interface Props {
 }
 withDefaults(defineProps<Props>(), {})
 
-
 const router = useRouter()
 const MDContent = useTemplateRef<HTMLDivElement>('MDContent')
+const anchorsToBehaveLikeRouterLink = ref<HTMLAnchorElement[]>([])
 
-const processMDContent = ()=>{
-  console.log(2)
-  const dynamicContentElement = MDContent.value as HTMLDivElement;
-  // const dynamicContentElement = MDContent.value;
-  const anchorsCollection = dynamicContentElement.getElementsByTagName('a');
-  console.log(anchorsCollection); console.log('^...anchorTags:')
+const clickHandlerForAnchorLikeRouterLink = (event: PointerEvent)=>{
+  const anchor = event.target as HTMLAnchorElement
+  const href: string = anchor.getAttribute('href') ?? '';
+  event.preventDefault(); // Prevent full page refresh
+  router.push(href); // Navigate using Vue Router
+}
+
+const enableAnchorsToBehaveLikeRouterLink = ()=>{
+  const MDContentNode = MDContent.value as HTMLDivElement;
+  const anchorsCollection = MDContentNode.getElementsByTagName('a');
   const anchors :HTMLAnchorElement[] = Array.from(anchorsCollection)
 
-  // todo:: анкоры, которые уходят в глобальную переменную, должны быть отфильтрованы по:
-  // - что они не внешние
-  // -
-  anchors.forEach(anchor => {
+  // Только внутренние ссылки без target blank
+  anchorsToBehaveLikeRouterLink.value = anchors.filter(anchor=>{
     const href: string = anchor.getAttribute('href') ?? '';
     const isLinkInternal = href && !href.startsWith('http') && !href.startsWith('//')
     const isNoTargetBlank = anchor.target !== '_blank'
-    if (isLinkInternal && isNoTargetBlank) { // Check for internal links
+    return isLinkInternal && isNoTargetBlank
+  })
 
-      const needTargetBlank = anchor.target === '_blank'
-      if (needTargetBlank) {
-        anchor.target = '_blank'
-      }
-
-      anchor.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent full page refresh
-        router.push(href); // Navigate using Vue Router
-      });
-    }
-  });
+  anchorsToBehaveLikeRouterLink.value.forEach(anchor => {
+    anchor.addEventListener('click', clickHandlerForAnchorLikeRouterLink);
+  })
+}
+const disableAnchorsToBehaveLikeRouterLink = ()=>{
+  anchorsToBehaveLikeRouterLink.value.forEach(anchor => {
+    anchor.addEventListener('click', clickHandlerForAnchorLikeRouterLink);
+  })
 }
 onMounted(()=>{
-  console.log(1)
-  processMDContent()
+  enableAnchorsToBehaveLikeRouterLink()
+})
+onBeforeUnmount(()=>{
+  disableAnchorsToBehaveLikeRouterLink()
 })
 
 </script>

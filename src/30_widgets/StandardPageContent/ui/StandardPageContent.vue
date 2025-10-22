@@ -1,7 +1,6 @@
 <template>
   <div class="standard-page-content">
     <h1>{{ pageBasic.title }}</h1>
-    <!--<div v-html="$md.render(pageBasic.content)"></div>-->
     <MarkdownRenderer :markdown="pageBasic.content" />
   </div>
 </template>
