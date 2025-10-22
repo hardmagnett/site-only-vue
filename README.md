@@ -10,4 +10,6 @@ npm run build
 ```
 
 ## Всякое
-Кошу под bedroom producers blog.
+Кошу под bedroom producers blog.  
+  
+Есть страница /tests. На ней проверка вёрстки и всякое другое разное.
