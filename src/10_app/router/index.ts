@@ -1,7 +1,12 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 import { setMetaTags } from '@/60_shared/lib/metaTags'
-import { pageMain, pageAbout, pageProjects } from '@/70_content/singularPages/'
+import {
+  pageMain,
+  pageAbout,
+  pageProjects,
+  pageServiceEngineering, pageServiceAssembly, pageTests
+} from '@/70_content/singularPages/'
 import { getProjectMiddleware } from '@/20_pages/ProjectPage'
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,13 +20,13 @@ const routes: Array<RouteRecordRaw> = [
     path: '/electric-panel-engineering',
     name: 'service-engineering',
     component: () => import('@/20_pages/ServiceEngineeringPage'),
-    beforeEnter: () => setMetaTags(pageAbout.meta),
+    beforeEnter: () => setMetaTags(pageServiceEngineering.meta),
   },
   {
     path: '/electric-panel-assembly',
     name: 'service-assembly',
     component: () => import('@/20_pages/ServiceAssemblyPage'),
-    beforeEnter: () => setMetaTags(pageAbout.meta),
+    beforeEnter: () => setMetaTags(pageServiceAssembly.meta),
   },
   {
     path: '/about',
@@ -34,6 +39,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'projects',
     component: () => import('@/20_pages/ProjectsPage'),
     beforeEnter: () => setMetaTags(pageProjects.meta),
+  },
+  {
+    path: '/tests',
+    name: 'tests',
+    component: () => import('@/20_pages/TestsPage'),
+    beforeEnter: () => setMetaTags(pageTests.meta),
   },
   {
     path: '/projects/:projectSlug',
